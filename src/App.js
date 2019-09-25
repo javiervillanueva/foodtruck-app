@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Switch, Route, Link } from 'react-router-dom';
 import './App.css';
-import Vlogin from './Components/Vendorlogin';
+import Vlogin from './Components/Vendor login/Vendorlogin';
 import SignUp from "./Components/SignUp/SignUp"
 
 
