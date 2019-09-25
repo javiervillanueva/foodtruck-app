@@ -3,6 +3,7 @@ import { BrowserRouter as Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 import Vlogin from './Components/Vendor login/Vendorlogin';
 import SignUp from "./Components/SignUp/SignUp"
+import UserLogin from "./Components/User login/userlogin"
 
 
 
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
 
       <Switch>
+        <UserLogin/>
         <Vlogin/>
         <UserLanding />
       </Switch>
