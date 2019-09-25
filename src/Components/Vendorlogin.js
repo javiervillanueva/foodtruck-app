@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./Vlogin.css";
 
 class Login extends React.Component {
   state = {
@@ -49,9 +50,9 @@ class Login extends React.Component {
             <div className="submit" onClick={this.handleLogin}>
               <span>Login</span>
             </div>
-            <Link className="submit" to="/signup">
+            {/* <Link className="submit" to="/signup">
               Signup
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
