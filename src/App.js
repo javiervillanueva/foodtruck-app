@@ -11,9 +11,7 @@ import UserLanding from './Components/UserLanding/UserLanding';
 function App() {
   return (
     <div className="App">
-    
-     
-     
+
       <Switch>
         <Vlogin/>
         <UserLanding />
