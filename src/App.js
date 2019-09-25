@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Switch, Route, Link } from 'react-router-dom';
 import './App.css';
-import Vlogin from './Components/Vendorlogin'
-
+import Vlogin from './Components/Vendorlogin';
 import UserLanding from './Components/UserLanding/UserLanding';
 
 function App() {
@@ -10,8 +9,8 @@ function App() {
     <div className="App">
     
       <Switch>
+        <Vlogin/>
         <UserLanding />
-          <Vlogin/>
       </Switch>
     </div>
   );
