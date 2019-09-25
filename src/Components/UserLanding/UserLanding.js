@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import './UserLanding.css'
+import './reset.css';
+import './UserLanding.css';
 
 export default class UserLanding extends Component {
     render() {
         return (
           <div className="user-landing-body">
-            <div className="header">BURGER</div>
+            <div className="header">
+                <button>BURGER</button>
+                <button>LOGIN</button>
+            </div>
             <div className="map-container">MAP CONTAINER</div> 
             <div className="event-list-container">
               EVENTS
