@@ -1,0 +1,63 @@
+*:focus {
+    outline: none;
+  }
+  
+  .Wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .modal {
+    height: 400px;
+    width: 350px;
+    box-shadow: 5px 5px 15px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    color:black;
+    justify-content: center;
+    background:#F1F5F2;
+    border-radius: 16px;
+  }
+  
+  .username {
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: none;
+    width: 300px;
+    height: 40px;
+    margin: 15px 0px;
+    padding-left: 5px;
+  }
+  
+  .password {
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: none;
+    width: 300px;
+    height: 40px;
+    margin: 15px 0px;
+    padding-left: 5px;
+  }
+  
+  .submit {
+    cursor: pointer;
+    height: 40px;
+    width: 150px;
+    border: 1px solid black;
+    margin: 15px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    text-decoration: none;
+  }
+  
