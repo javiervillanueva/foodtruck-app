@@ -10,19 +10,7 @@ import SignUp from "./Components/SignUp/SignUp"
 
 import UserLanding from './Components/UserLanding/UserLanding';
 
-<<<<<<< HEAD
-function App() {
-  return (
-    <div className="App">
-     
-     
-      <Switch>
-        <SignUp/>
-        
-      </Switch>
-    </div>
-  );
-=======
+
 class App extends Component {
 
   componentDidMount() {
@@ -61,7 +49,6 @@ const mapStateToProps = (state) => {
   return {
     user: state.user
   }
->>>>>>> master
 }
 
 export default connect(mapStateToProps, {updateUser: updateUser})(withRouter(App));
