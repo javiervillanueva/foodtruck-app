@@ -19,7 +19,7 @@ class App extends Component {
 
   render () {
 
-    console.log(this.props.user);
+    console.log(this.props);
 
 
     return (
@@ -28,12 +28,9 @@ class App extends Component {
        
        
         <Switch>
-          <Route exact path='/' >
-            <UserLanding  />
-          </Route>
-          <Route path='/vendor/login' component={Vlogin}>
-            <Vlogin  />
-          </Route>
+          <Route exact path='/' component={UserLanding}/>
+          <Route path='/vendor/login' component={Vlogin}/>
+          <Route path='/vendor/signup' component={SignUp} />
         </Switch>
       </div>
     );
