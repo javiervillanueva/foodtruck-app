@@ -13,7 +13,8 @@ function App() {
      
      
       <Switch>
-        <UserLanding />
+        <SignUp/>
+        
       </Switch>
     </div>
   );
