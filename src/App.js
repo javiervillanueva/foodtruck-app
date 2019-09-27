@@ -7,6 +7,8 @@ import Vlogin from './Components/Vendor login/Vendorlogin';
 import SignUp from "./Components/SignUp/SignUp"
 import UserLogin from "./Components/User login/userlogin"
 import UserLanding from './Components/UserLanding/UserLanding';
+
+
 class App extends Component {
 
   componentDidMount() {
