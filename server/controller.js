@@ -45,7 +45,11 @@ module.exports = {
         }
       },
 
-      getUser: (req, res) => {
+      getSessionUser: (req, res) => {
+        res.send(req.session.user);
+      },
+
+      getAllUsers: (req, res) => {
         const db = req.app.get("db");
         db.query(
         `SELECT * FROM users;`
@@ -97,4 +101,41 @@ module.exports = {
            res.status(500).send(error);
          }
        },
+
+       addTofaves: async (req, res, next) => {
+        try {
+            const db = req.app.get("db");
+            const userId = req.session.user.id;
+            const vendorId = req.body.vendorId;
+            const addVendor = await db.users_fave.insert({
+                user_id: userId,
+                vendor_id: vendorId
+            })
+    
+            res.sendStatus(200);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send(error);
+        } 
+      },
+
+      addMenuItem: async (req, res, next) => {
+        try {
+        const db = req.app.get("db");
+        const itemTitle = req.body.title;
+        const itemDesription = req.body.description;
+        const itemPrice = req.body.price;
+
+        const addItem = await db.text_menu.insert({
+          title: itemTitle,
+          description: itemDesription,
+          price: itemPrice
+        })
+        res.sendStatus(200);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send(error);
+        } 
+      }
+
 }
