@@ -5,9 +5,6 @@ import { updateUser } from './redux/actions';
 import './App.css';
 import Vlogin from './Components/Vendor login/Vendorlogin';
 import SignUp from "./Components/SignUp/SignUp"
-
-
-
 import UserLanding from './Components/UserLanding/UserLanding';
 
 
@@ -23,7 +20,7 @@ class App extends Component {
 
   render () {
 
-    console.log(this.props.user);
+    console.log(this.props);
 
 
     return (
@@ -32,12 +29,9 @@ class App extends Component {
        
        
         <Switch>
-          <Route exact path='/' >
-            <UserLanding  />
-          </Route>
-          <Route path='/vendor/login' component={Vlogin}>
-            <Vlogin  />
-          </Route>
+          <Route exact path='/' component={UserLanding}/>
+          <Route path='/vendor/login' component={Vlogin}/>
+          <Route path='/vendor/signup' component={SignUp} />
         </Switch>
       </div>
     );
