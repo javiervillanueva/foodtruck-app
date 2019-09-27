@@ -31,6 +31,7 @@ class App extends Component {
           <Route exact path='/' component={UserLanding}/>
           <Route path='/vendor/login' component={Vlogin}/>
           <Route path='/vendor/signup' component={SignUp} />
+          <Route path='/user/login' component={UserLogin}/>
         </Switch>
       </div>
     );
