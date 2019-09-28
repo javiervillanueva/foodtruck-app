@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './reset.css';
 import './UserLanding.css';
 import { Link } from 'react-router-dom';
+import BurgerDrawer from './BurgerDrawer';
 
 export default class UserLanding extends Component {
 
@@ -14,10 +15,7 @@ export default class UserLanding extends Component {
       return (
         <div className="user-landing-body">
           <div className="header">
-              <button>BURGER</button>
-              <Link to='/user/login'>
-                <button>LOGIN</button>
-              </Link>
+              <BurgerDrawer />
           </div>
           <div className="map-container">MAP CONTAINER</div> 
           <div className="event-list-container">
@@ -33,3 +31,6 @@ export default class UserLanding extends Component {
       );
   };
 };
+
+
+
