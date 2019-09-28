@@ -14,11 +14,11 @@ class UserSignUp extends React.Component{
         try {
             //update to enpoints when avalible
           const body = {
-            UserName: this.state.UserName,
-            email: this.state.email,
-            password: this.state.email
+            firstName: this.state.firstName,
+            emailAddress: this.state.emailAddress,
+            password: this.state.password
           };
-          if (body.username && body.password && body.fullName) {
+          if (body.firstName && body.password && body.email) {
             await axios.post("/signup", body);
             alert("Successful, go to Login?");
             this.props.history.push("/login");
@@ -38,7 +38,7 @@ render(){
           <div className="modal">
           <h1>Create Account</h1>
             <input
-              value={this.state.UserName}
+              value={this.state.firstName}
               onChange={this.handleChange}
               name="User Name"
               className="username"
@@ -46,7 +46,7 @@ render(){
               placeholder="First Name"
             />
             <input
-              value={this.state.email}
+              value={this.state.emailAddress}
               onChange={this.handleChange}
               name="Email"
               className="username"
@@ -64,7 +64,7 @@ render(){
             <div className="submit" onClick={this.handleSignup}>
               Create Account
             </div>
-            <Link className="submit" to="/login">
+            <Link className="submit" to="/user/login">
               {" "}
               Go to Login
             </Link>
