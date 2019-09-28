@@ -35,6 +35,7 @@ class App extends Component {
           <Route path='/vendor/login' component={Vlogin}/>
           <Route path='/vendor/signup' component={SignUp} />
           <Route path='/vendor/home' component={Vhome}/>
+          <Route path='/user/login' component={UserLogin}/>
         </Switch>
       </div>
     );
