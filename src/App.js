@@ -8,6 +8,8 @@ import SignUp from "./Components/SignUp/SignUp"
 import UserLogin from "./Components/User login/userlogin"
 import UserLanding from './Components/UserLanding/UserLanding';
 import UserSignUp from "./Components/userSignUp/userSignUp";
+import Vhome from "./Components/Vendor pages/Vhome";
+
 
 class App extends Component {
 
@@ -33,7 +35,9 @@ class App extends Component {
           <Route exact path='/' component={UserLanding}/>
           <Route path='/vendor/login' component={Vlogin}/>
           <Route path='/vendor/signup' component={SignUp} />
+          <Route path='/vendor/home' component={Vhome}/>
           <Route path='/user/login' component={UserLogin}/>
+          <Route path='/user/signup' component={UserSignUp}/>
         </Switch>
       </div>
     );
