@@ -26,10 +26,13 @@ app.use(
 
 
 app.post("/api/user-signup", controller.createUser);
-app.get("/api/getUser", controller.getUser);
+app.get("/api/getAllUsers", controller.getAllUsers);
+app.get('/api/logged-in-user', controller.getSessionUser)
 app.post("/api/user-login", controller.loginUser);
 app.post("/api/vendor-signup", controller.createVendor);
 app.post("/api/vendor-login", controller.loginVendor);
+app.post("/api/user-faves", controller.addTofaves);
+app.post("/api/add-menu-item", controller.addMenuItem);
 
 
 
