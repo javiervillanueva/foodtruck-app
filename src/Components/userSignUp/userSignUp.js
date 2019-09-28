@@ -21,7 +21,7 @@ class UserSignUp extends React.Component{
           if (body.firstName && body.password && body.email) {
             await axios.post("/signup", body);
             alert("Successful, go to Login?");
-            this.props.history.push("/login");
+            this.props.history.push("/user/login");
           } else {
             alert("Please fill out all the info boxes");
           }
