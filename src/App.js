@@ -7,7 +7,7 @@ import Vlogin from './Components/Vendor login/Vendorlogin';
 import SignUp from "./Components/SignUp/SignUp"
 import UserLogin from "./Components/User login/userlogin"
 import UserLanding from './Components/UserLanding/UserLanding';
-
+import UserSignUp from "./Components/userSignUp/userSignUp";
 
 class App extends Component {
 
@@ -26,8 +26,8 @@ class App extends Component {
 
     return (
       <div className="App">
-      
-       
+     
+    
        
         <Switch>
           <Route exact path='/' component={UserLanding}/>
