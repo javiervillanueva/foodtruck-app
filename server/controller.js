@@ -9,7 +9,7 @@ module.exports = {
           const hash = await bcrypt.hash(req.body.password, 10);
       
           const newUser = await db.users.insert({
-            name: req.body.name,
+            name: req.body.firstName,
             email: req.body.email,
             password: hash
           });

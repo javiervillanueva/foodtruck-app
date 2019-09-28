@@ -21,9 +21,9 @@ class Signup extends React.Component {
         password: this.state.email
       };
       if (body.username && body.password && body.fullName) {
-        await axios.post("/signup", body);
+        await axios.post("/api/vendor-signup", body);
         alert("Successful, go to Login?");
-        this.props.history.push("/login");
+        this.props.history.push("/vendor/login");
       } else {
         alert("Please fill out all the info boxes");
       }

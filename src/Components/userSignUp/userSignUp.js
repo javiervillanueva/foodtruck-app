@@ -5,21 +5,15 @@ import "./userSignUp.css";
 
 class UserSignUp extends React.Component{
     state = {
-        UserName: "",
+        firstName: "",
         email: "",
         password:""
       };
 
       handleSignup = async () => {
         try {
-            //update to enpoints when avalible
-          const body = {
-            firstName: this.state.firstName,
-            emailAddress: this.state.emailAddress,
-            password: this.state.password
-          };
-          if (body.firstName && body.password && body.email) {
-            await axios.post("/signup", body);
+          if (this.state.firstName && this.state.password && this.state.emailAddress) {
+            await axios.post("/api/user-signup", this.state);
             alert("Successful, go to Login?");
             this.props.history.push("/user/login");
           } else {
@@ -32,6 +26,7 @@ class UserSignUp extends React.Component{
       handleChange = e => this.setState({ [e.target.name]: e.target.value });
     
 render(){
+    console.log(this.state)
  return(
 <div className="App">
         <div className="Wrapper">
@@ -40,15 +35,15 @@ render(){
             <input
               value={this.state.firstName}
               onChange={this.handleChange}
-              name="User Name"
+              name="firstName"
               className="username"
               type="text"
               placeholder="First Name"
             />
             <input
-              value={this.state.emailAddress}
+              value={this.state.email}
               onChange={this.handleChange}
-              name="Email"
+              name="email"
               className="username"
               type="text"
               placeholder="Email"
