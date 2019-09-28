@@ -145,19 +145,19 @@ export default function PersistentDrawerLeft() {
               <ListItemText primary={text} />
             </ListItem>
           ))} */}
-          <ListItem>
+          <ListItem button >
             <ListItemIcon><CalendarTodayIcon/></ListItemIcon>
             <ListItemText>Schedule</ListItemText>
           </ListItem>
-          <ListItem>
+          <ListItem button >
             <ListItemIcon><KitchenIcon/></ListItemIcon>
             <ListItemText>Food Menu</ListItemText>
           </ListItem>
-          <ListItem>
+          <ListItem button >
             <ListItemIcon><FastfoodIcon/></ListItemIcon>
             <ListItemText>Specials</ListItemText>
           </ListItem>
-          <ListItem>
+          <ListItem button >
             <ListItemIcon><MailIcon/></ListItemIcon>
             <ListItemText>Messages</ListItemText>
           </ListItem>
