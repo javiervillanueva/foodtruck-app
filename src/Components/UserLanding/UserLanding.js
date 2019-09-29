@@ -3,12 +3,12 @@ import './reset.css';
 import './UserLanding.css';
 import { Link } from 'react-router-dom';
 import BurgerDrawer from './BurgerDrawer';
+import Map from './ReactMapGL';
+
 
 export default class UserLanding extends Component {
 
-  routeLogin = () => {
-
-  }
+  
 
 
   render() {
@@ -17,7 +17,7 @@ export default class UserLanding extends Component {
           <div className="header">
               <BurgerDrawer />
           </div>
-          <div className="map-container">MAP CONTAINER</div> 
+          <div className="map-container"><Map /></div> 
           <div className="event-list-container">
             EVENTS
             <div className="event-summary">
