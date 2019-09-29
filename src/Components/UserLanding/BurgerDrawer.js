@@ -106,7 +106,7 @@ export default function PersistentDrawerLeft() {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
+        <Toolbar style={{height: '70px', background: '#F8A33B',  display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
