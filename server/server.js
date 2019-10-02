@@ -7,13 +7,19 @@ const bcrypt = require("bcrypt");
 const bodyparser = require("body-parser");
 const path = require("path");
 const nodemailer = require("nodemailer");
-const controller = require("./controller")
+const controller = require("./controller");
+// const io = require('socket.io')();
 
 
 massive(process.env.CONNECTION_STRING)
 .then(db => {
     app.set('db', db);
 })
+
+// app.get('/', function (req, res) {
+//     res.sendFile(__dirname + '/index.html');
+//   });
+
 app.use(bodyparser.json());
 app.use(
     session({
