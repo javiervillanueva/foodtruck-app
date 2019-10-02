@@ -32,10 +32,10 @@ class Login extends React.Component {
             <input
               value={this.state.username}
               onChange={this.handleChange}
-              name="username"
+              name="email"
               className="username"
               type="text"
-              placeholder="username"
+              placeholder="Email"
             />
             <input
               value={this.state.password}
@@ -43,7 +43,7 @@ class Login extends React.Component {
               name="password"
               className="username"
               type="password"
-              placeholder="password"
+              placeholder="Password"
             />
             <div className="submit" onClick={this.handleLogin}>
               <span>Login</span>

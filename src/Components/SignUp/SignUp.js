@@ -35,7 +35,7 @@ class Signup extends React.Component {
             <input
               value={this.state.vendorName}
               onChange={this.handleChange}
-              name="vendor name"
+              name="vendorName"
               className="username"
               type="text"
               placeholder="Vendor Name"
@@ -43,7 +43,7 @@ class Signup extends React.Component {
             <input
               value={this.state.ownerName}
               onChange={this.handleChange}
-              name="Owner's name"
+              name="ownerName"
               className="username"
               type="text"
               placeholder="Owner's Name"
@@ -51,7 +51,7 @@ class Signup extends React.Component {
             <input
               value={this.state.email}
               onChange={this.handleChange}
-              name="Email"
+              name="email"
               className="username"
               type="text"
               placeholder="Email"
