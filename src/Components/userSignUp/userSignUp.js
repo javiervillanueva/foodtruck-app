@@ -12,7 +12,7 @@ class UserSignUp extends React.Component{
 
       handleSignup = async () => {
         try {
-          if (this.state.firstName && this.state.password && this.state.emailAddress) {
+          if (this.state.firstName && this.state.password && this.state.email) {
             await axios.post("/api/user-signup", this.state);
             alert("Successful, go to Login?");
             this.props.history.push("/user/login");
