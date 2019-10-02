@@ -1,6 +1,6 @@
 import React from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+// import axios from "axios";
+// import { Link } from "react-router-dom";
 import "./Vhome.css"
 
 class Vhome extends React.Component {
@@ -10,7 +10,7 @@ class Vhome extends React.Component {
         <div className="Body">
           <div className="mainsection">
             <div className="Upper">
-              <div className="Img-icon"><img></img></div>
+              <div className="Img-icon"></div>
               <div className="VendorName">Vendor Name Here</div>
               <div className="today"></div>
             </div>
