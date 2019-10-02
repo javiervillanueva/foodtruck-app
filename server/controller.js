@@ -2,25 +2,25 @@ const bcrypt = require("bcrypt")
 
 module.exports = {
 
-   createUser: async (req, res) => {
-       try {
-          const db = req.app.get("db");
-      
-          const hash = await bcrypt.hash(req.body.password, 10);
-      
-          const newUser = await db.users.insert({
-            name: req.body.firstName,
-            email: req.body.email,
-            password: hash
-          });
-      
-          delete newUser.password;
-          res.send(newUser);
-        } catch (error) {
-          console.log(error);
-          res.status(500).send(error);
-        };
-      },
+  createUser: async (req, res) => {
+    try {
+      const db = req.app.get("db");
+  
+      const hash = await bcrypt.hash(req.body.password, 10);
+  
+      const newUser = await db.users.insert({
+        name: req.body.name,
+        email: req.body.email,
+        password: hash
+      });
+  
+      delete newUser.password;
+      res.send(newUser);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    };
+  },
 
 
     loginUser: async (req, res) => {
