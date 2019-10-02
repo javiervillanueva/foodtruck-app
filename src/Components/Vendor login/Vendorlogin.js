@@ -5,18 +5,14 @@ import "./Vlogin.css";
 
 class Login extends React.Component {
   state = {
-    username: "",
+    email: "",
     password: ""
   };
   handleLogin = async () => {
     try {
-      const body = {
-        username: this.state.username,
-        password: this.state.password
-      };
-      if (body.username && body.password) {
-        await axios.post("/", body);
-        this.props.history.push("/");
+      if (this.state.email && this.state.password) {
+        await axios.post("/api/vendor-login", this.state);
+        this.props.history.push("/vendor/home");
       }else{
           alert('Please enter log in credentials')
       }

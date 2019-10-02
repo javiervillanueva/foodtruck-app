@@ -5,17 +5,14 @@ import "./Userlogin.css";
 
 class Login extends React.Component {
   state = {
-    username: "",
+    email: "",
     password: ""
   };
   handleLogin = async () => {
     try {
-      const body = {
-        username: this.state.username,
-        password: this.state.password
-      };
-      if (body.username && body.password) {
-        await axios.post("/", body);
+
+      if (this.state.email && this.state.password) {
+        await axios.post("/api/user-login",this.state );
         this.props.history.push("/");
       }else{
           alert('Please enter log in credentials')
