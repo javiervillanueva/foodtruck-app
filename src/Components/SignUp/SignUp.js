@@ -13,15 +13,8 @@ class Signup extends React.Component {
 
   handleSignup = async () => {
     try {
-        //update to enpoints when avalible
-      const body = {
-        vendorName: this.state.vendorName,
-        ownerName: this.state.ownerName,
-        email: this.state.email,
-        password: this.state.email
-      };
-      if (body.username && body.password && body.fullName) {
-        await axios.post("/api/vendor-signup", body);
+      if (this.state.vendorName && this.state.ownerName && this.state.email&&this.state.password) {
+        await axios.post("/api/vendor-signup", this.state);
         alert("Successful, go to Login?");
         this.props.history.push("/vendor/login");
       } else {
@@ -42,7 +35,7 @@ class Signup extends React.Component {
             <input
               value={this.state.vendorName}
               onChange={this.handleChange}
-              name="vendor name"
+              name="vendorName"
               className="username"
               type="text"
               placeholder="Vendor Name"
@@ -50,7 +43,7 @@ class Signup extends React.Component {
             <input
               value={this.state.ownerName}
               onChange={this.handleChange}
-              name="Owner's name"
+              name="ownerName"
               className="username"
               type="text"
               placeholder="Owner's Name"
@@ -58,7 +51,7 @@ class Signup extends React.Component {
             <input
               value={this.state.email}
               onChange={this.handleChange}
-              name="Email"
+              name="email"
               className="username"
               type="text"
               placeholder="Email"
@@ -74,7 +67,7 @@ class Signup extends React.Component {
             <div className="submit" onClick={this.handleSignup}>
               Create Account
             </div>
-            <Link className="submit" to="/login">
+            <Link className="submit" to="/vendor/login">
               {" "}
               Go to Login
             </Link>

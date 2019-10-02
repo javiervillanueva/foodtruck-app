@@ -2,25 +2,25 @@ const bcrypt = require("bcrypt")
 
 module.exports = {
 
-   createUser: async (req, res) => {
-       try {
-          const db = req.app.get("db");
-      
-          const hash = await bcrypt.hash(req.body.password, 10);
-      
-          const newUser = await db.users.insert({
-            name: req.body.firstName,
-            email: req.body.email,
-            password: hash
-          });
-      
-          delete newUser.password;
-          res.send(newUser);
-        } catch (error) {
-          console.log(error);
-          res.status(500).send(error);
-        };
-      },
+  createUser: async (req, res) => {
+    try {
+      const db = req.app.get("db");
+  
+      const hash = await bcrypt.hash(req.body.password, 10);
+  
+      const newUser = await db.users.insert({
+        name: req.body.firstName,
+        email: req.body.email,
+        password: hash
+      });
+  
+      delete newUser.password;
+      res.send(newUser);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    };
+  },
 
 
     loginUser: async (req, res) => {
@@ -129,7 +129,8 @@ module.exports = {
         const addItem = await db.text_menu.insert({
           title: itemTitle,
           description: itemDesription,
-          price: itemPrice
+          price: itemPrice,
+          vendor_id: req.session.vendor.id
         })
         res.sendStatus(200);
         } catch (error) {
