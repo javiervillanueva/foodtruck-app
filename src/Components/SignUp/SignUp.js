@@ -13,15 +13,8 @@ class Signup extends React.Component {
 
   handleSignup = async () => {
     try {
-        //update to enpoints when avalible
-      const body = {
-        vendorName: this.state.vendorName,
-        ownerName: this.state.ownerName,
-        email: this.state.email,
-        password: this.state.email
-      };
-      if (body.username && body.password && body.fullName) {
-        await axios.post("/api/vendor-signup", body);
+      if (this.state.vendorName && this.state.ownerName && this.state.email&&this.state.password) {
+        await axios.post("/api/vendor-signup", this.state);
         alert("Successful, go to Login?");
         this.props.history.push("/vendor/login");
       } else {
@@ -74,7 +67,7 @@ class Signup extends React.Component {
             <div className="submit" onClick={this.handleSignup}>
               Create Account
             </div>
-            <Link className="submit" to="/login">
+            <Link className="submit" to="/vendor/login">
               {" "}
               Go to Login
             </Link>
