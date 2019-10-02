@@ -129,7 +129,8 @@ module.exports = {
         const addItem = await db.text_menu.insert({
           title: itemTitle,
           description: itemDesription,
-          price: itemPrice
+          price: itemPrice,
+          vendor_id: req.session.vendor.id
         })
         res.sendStatus(200);
         } catch (error) {
