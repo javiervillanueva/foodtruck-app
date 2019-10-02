@@ -10,7 +10,7 @@
 .header {
     width: 100%;
     height: 10%;
-    background: #f8a33b;
+    /* background: #f8a33b; */
     color: white;
     display: flex;
     justify-content: flex-start;
@@ -19,61 +19,71 @@
 }
 
 .map-container {
-    width: 100%;
-    height: 30%;
-    background: url('./google-maps.png');
+    width: 95%;
+    height: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
+    border-radius: 50px;
 }
 
 .event-list-container {
-    width: 100%;
-    height: 60%;
+    width: 95%;
+    height: 55%;
     background: darkgray;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 5px;
+
 }
 
 .event-summary {
     width: 90%;
     height: 25%;
-    outline: 1px solid black;
-    border-radius: 5px;
+    border: 1px solid black;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    border-radius: 5px;
+
 }
 
 .event-profile-container {
     width: 30%;
     height: 90%;
-    outline: 1px solid black;
+    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
+
     
 }
 
 .event-profile {
     width: 90%;
-    height: 60%;
-    outline: 1px solid black;
+    height: 80%;
+    border: 1px solid black;
     background: url('data:image/png;base64,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') no-repeat center center;
-    background-size: 80px 80px
+    background-size: 80px 80px;
+    border-radius: 50%;
+
 }
 
 .event-details {
     width: 65%;
     height: 90%;
-    outline: 1px solid black;
+    border: 1px solid black;
+    border-radius: 5px;
+
 }
 
 button {
-    width: 60px;
+    width: 80px;
     height: 40px;
     margin: 2px;
     border-radius: 5px;
