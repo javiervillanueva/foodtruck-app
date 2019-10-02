@@ -8,7 +8,7 @@ import SignUp from "./Components/SignUp/SignUp"
 import UserLogin from "./Components/User login/userlogin"
 import UserLanding from './Components/UserLanding/UserLanding';
 import UserSignUp from "./Components/userSignUp/userSignUp";
-import UserDrawer from './Components/UserLanding/UserDrawer'
+// import UserDrawer from './Components/UserLanding/UserDrawer'
 import Vhome from "./Components/Vendor pages/Vhome";
 
 
