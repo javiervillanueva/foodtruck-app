@@ -74,7 +74,7 @@ class Signup extends React.Component {
             <div className="submit" onClick={this.handleSignup}>
               Create Account
             </div>
-            <Link className="submit" to="/login">
+            <Link className="submit" to="/vendor/login">
               {" "}
               Go to Login
             </Link>
