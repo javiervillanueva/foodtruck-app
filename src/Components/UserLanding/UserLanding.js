@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './reset.css';
 import './UserLanding.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import BurgerDrawer from './BurgerDrawer';
 import Map from './ReactMapGL';
 
