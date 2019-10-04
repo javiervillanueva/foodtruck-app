@@ -47,12 +47,13 @@ class Login extends React.Component {
             <div className="submit" onClick={this.handleLogin}>
               <span>Login</span>
             </div>
-            <Link className="submit" to="/user/signup">
+            <Link className="link" to="/user/signup">
               Signup for Foodie Account
             </Link> 
-             <Link className="submit" to="/vendor/signup">
+             <Link className="link"to="/vendor/signup">
               Signup for Vendor Account
             </Link> 
+            <Link className="link" to="/vendor/login">login in to User Account</Link>
           </div>
         </div>
       </div>
