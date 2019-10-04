@@ -4,18 +4,31 @@ import './UserLanding.css';
 // import { Link } from 'react-router-dom';
 import UserDrawer from './UserDrawer';
 import Map from './ReactMapGL';
+import {connect} from 'react-redux';
+import { logout } from '../../redux/actions'
+import axios from 'axios';
 
 
-export default class UserLanding extends Component {
+class UserLanding extends Component {
 
-  
+  handleLogout = (closeDrawer) => {
+    // console.log('fire log out button')
+     return axios.delete('/api/logout').then(() => {
+      this.props.logout();
+      alert('successfully logged out')
+      closeDrawer();
+      this.props.history.push('/');
+
+    })
+  }
 
 
   render() {
       return (
         <div className="user-landing-body">
           <div className="header">
-              <UserDrawer />
+              <UserDrawer isLoggedIn={this.props.isLoggedIn}
+                          logout={this.handleLogout}/>
           </div>
           <div className="map-container"><Map /></div> 
           <div className="event-list-container">
@@ -38,5 +51,11 @@ export default class UserLanding extends Component {
   };
 };
 
+function mapStateToProps(state) {
+  return {
+    isLoggedIn: state.isLoggedIn
+  }
+}
 
+export default connect(mapStateToProps, {logout: logout})(UserLanding);
 

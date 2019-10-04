@@ -6,7 +6,7 @@ state = {
     viewport: {
         latitude: 40.4387154,
         longitude: -111.8922966,
-        width: window.innerWidth * 0.95,
+        width: window.innerWidth,
         height: window.innerHeight * 0.35,
         zoom: 10   
     },

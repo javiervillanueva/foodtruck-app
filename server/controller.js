@@ -38,7 +38,7 @@ module.exports = {
       
           delete user.password;
           req.session.user = user;
-          return res.send("success yay");
+          return res.send(req.session.user);
         } catch (error) {
           console.log(error);
           res.status(500).send(error);
@@ -140,6 +140,9 @@ module.exports = {
     }, 
 
         logout: async (req, res) => {
-        return req.session.destroy(err => res.send("logged out"));
+        return req.session.destroy(err => {
+          
+          res.send("logged out")
+        });
     }
 }
