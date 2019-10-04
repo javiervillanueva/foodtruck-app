@@ -136,7 +136,10 @@ module.exports = {
         } catch (error) {
             console.error(error);
             res.status(500).send(error);
-        } 
-      }
+        }
+    }, 
 
+        logout: async (req, res) => {
+        return req.session.destroy(err => res.send("logged out"));
+    }
 }
