@@ -4,9 +4,10 @@ import './UserLanding.css';
 // import { Link } from 'react-router-dom';
 import UserDrawer from './UserDrawer';
 import Map from './ReactMapGL';
+import {connect} from 'react-redux';
 
 
-export default class UserLanding extends Component {
+class UserLanding extends Component {
 
   
 
@@ -15,7 +16,8 @@ export default class UserLanding extends Component {
       return (
         <div className="user-landing-body">
           <div className="header">
-              <UserDrawer />
+              <UserDrawer isLoggedIn={this.props.isLoggedIn}
+                          logout={this.props.logout}/>
           </div>
           <div className="map-container"><Map /></div> 
           <div className="event-list-container">
@@ -38,5 +40,12 @@ export default class UserLanding extends Component {
   };
 };
 
+function mapStateToProps(state) {
+  return {
+    isLoggedIn: state.isLoggedIn,
+    logout: state.logout
+  }
+}
 
+export default connect(mapStateToProps)(UserLanding);
 

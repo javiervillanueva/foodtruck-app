@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { updateUser } from './redux/actions';
+import { getSessionUser } from './redux/actions';
 import './App.css';
 import Vlogin from './Components/Vendor login/Vendorlogin';
 import SignUp from "./Components/SignUp/SignUp"
@@ -10,16 +10,15 @@ import UserLanding from './Components/UserLanding/UserLanding';
 import UserSignUp from "./Components/userSignUp/userSignUp";
 // import UserDrawer from './Components/UserLanding/UserDrawer'
 import Vhome from "./Components/Vendor pages/Vhome";
+import axios from 'axios';
 
 
 class App extends Component {
 
   componentDidMount() {
-    const user = {
-      name: 'sam',
-      height: '5ft'
-    }
-    this.props.updateUser(user);
+    axios.get('/api/logged-in-user')
+      .then(response => this.props.getSessionUser(response.data));
+    
   }
 
   render () {
@@ -46,8 +45,9 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    isLoggedIn: state.isLoggedIn
   }
 }
 
-export default connect(mapStateToProps, {updateUser: updateUser})(withRouter(App));
+export default connect(mapStateToProps, {getSessionUser: getSessionUser})(withRouter(App));

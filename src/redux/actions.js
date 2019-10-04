@@ -1,6 +1,13 @@
-export const updateUser = (user) => {
+export const getSessionUser = (user) => {
     return {
-        type: 'UPDATE_USER',
+        type: 'LOGIN_USER',
         payload: user
+    }
+}
+
+export const logout = () => {
+    return {
+        type: 'LOGOUT'
+        
     }
 }
