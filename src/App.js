@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getSessionUser } from './redux/actions';
+import { getSessionUser, login } from './redux/actions';
 import './App.css';
 import Vlogin from './Components/Vendor login/Vendorlogin';
 import SignUp from "./Components/SignUp/SignUp"
@@ -17,7 +17,10 @@ class App extends Component {
 
   componentDidMount() {
     axios.get('/api/logged-in-user')
-      .then(response => this.props.getSessionUser(response.data));
+      .then(response => {
+        this.props.getSessionUser(response.data);
+        if (response.data.email) this.props.login();
+      });
     
   }
 
@@ -50,4 +53,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {getSessionUser: getSessionUser})(withRouter(App));
+export default connect(mapStateToProps, {getSessionUser: getSessionUser, login: login})(withRouter(App));

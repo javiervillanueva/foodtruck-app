@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { getSessionUser, login } from '../../redux/actions';
+import {connect} from 'react-redux';
 import "./Userlogin.css";
 
 class Login extends React.Component {
@@ -12,7 +14,10 @@ class Login extends React.Component {
     try {
 
       if (this.state.email && this.state.password) {
-        await axios.post("/api/user-login",this.state );
+        let loginResult = await axios.post("/api/user-login", this.state );
+        this.props.getSessionUser(loginResult.data);
+        this.props.login();
+        alert('successfully logged in!');
         this.props.history.push("/");
       }else{
           alert('Please enter log in credentials')
@@ -22,6 +27,12 @@ class Login extends React.Component {
     }
   };
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  onKeyPress = (e) => {
+    if (e.which === 13) {
+        this.handleLogin();
+    }
+}
 
   render() {
     return (
@@ -44,6 +55,7 @@ class Login extends React.Component {
               className="username"
               type="password"
               placeholder="Password"
+              onKeyPress={this.onKeyPress}
             />
             <div className="submit" onClick={this.handleLogin}>
               <span>Login</span>
@@ -62,4 +74,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default connect(null, {login: login, getSessionUser: getSessionUser})(Login);

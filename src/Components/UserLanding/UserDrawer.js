@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { styled } from '@material-ui/styles';
+// import { styled } from '@material-ui/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -28,9 +28,9 @@ import MapIcon from '@material-ui/icons/Map';
 import StarIcon from '@material-ui/icons/Star';
 import { Link } from 'react-router-dom';
 // import UserLanding from './UserLanding';
-import  { getSessionUser } from '../../redux/actions';
-import { connect } from 'react-redux';
-import axios from 'axios';
+// import  { getSessionUser } from '../../redux/actions';
+// import { connect } from 'react-redux';
+// import axios from 'axios';
 
 
 const drawerWidth = '80%';
@@ -159,7 +159,7 @@ function PersistentDrawerLeft(props) {
             ))} */}
             <ListItem button >
                 <ListItemIcon><MapIcon/></ListItemIcon>
-                <ListItemText>Map</ListItemText>
+                <ListItemText onClick={() => handleDrawerClose()}>Map</ListItemText>
             </ListItem>
             <ListItem button >
                 <ListItemIcon><StarIcon/></ListItemIcon>
@@ -178,7 +178,9 @@ function PersistentDrawerLeft(props) {
             </ListItem>
             <ListItem button >
                 <ListItemIcon><ExitToAppIcon/></ListItemIcon>
-                <ListItemText onClick={() => axios.delete('/api/logout').then(() => alert('successfully logged out'))}>Logout</ListItemText>
+                <ListItemText onClick={() => {
+                  props.logout(handleDrawerClose)
+                  }}>Logout</ListItemText>
             </ListItem>
         </List>
       </Drawer>
@@ -224,4 +226,4 @@ function PersistentDrawerLeft(props) {
 //   }
 
 // export default connect(mapStateToProps, {getSessionUser: getSessionUser})( PersistentDrawerLeft);
-export default PersistentDrawerLeft;
+export default PersistentDrawerLeft; 
