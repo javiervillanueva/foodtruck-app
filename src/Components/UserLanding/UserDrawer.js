@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+// import { styled } from '@material-ui/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -27,6 +28,10 @@ import MapIcon from '@material-ui/icons/Map';
 import StarIcon from '@material-ui/icons/Star';
 import { Link } from 'react-router-dom';
 // import UserLanding from './UserLanding';
+// import  { getSessionUser } from '../../redux/actions';
+// import { connect } from 'react-redux';
+// import axios from 'axios';
+
 
 const drawerWidth = '80%';
 
@@ -86,7 +91,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PersistentDrawerLeft(props) {
+function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -110,7 +115,7 @@ export default function PersistentDrawerLeft(props) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar style={{height: '70px', background: '#F8A33B',  display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+        <Toolbar style={{background: '#F8A33B',  display: 'flex', alignItems: 'center', justifyContent: 'space-between', boxShadow: '1px 5px 13px rgb(0, 0, 0, .7)'}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -121,9 +126,12 @@ export default function PersistentDrawerLeft(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            <Link to='/user/login'>
-                <button>LOGIN</button>
-            </Link>
+              { props.isLoggedIn === true ? 
+                null :
+                <Link to='/user/login'>
+                    <button>LOGIN</button>
+                </Link>
+              }
           </Typography>
         </Toolbar>
       </AppBar>
@@ -143,33 +151,37 @@ export default function PersistentDrawerLeft(props) {
         </div>
         <Divider />
         <List>
-          {/* {['Schedule', ' Food Menu', 'Specials', 'Messages'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <CalendarTodayIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+            {/* {['Schedule', ' Food Menu', 'Specials', 'Messages'].map((text, index) => (
+                <ListItem button key={text}>
+                <ListItemIcon>{index % 2 === 0 ? <CalendarTodayIcon /> : <MailIcon />}</ListItemIcon>
+                <ListItemText primary={text} />
+                </ListItem>
+            ))} */}
+            <ListItem button >
+                <ListItemIcon><MapIcon/></ListItemIcon>
+                <ListItemText onClick={() => handleDrawerClose()}>Map</ListItemText>
             </ListItem>
-          ))} */}
-          <ListItem button >
-            <ListItemIcon><MapIcon/></ListItemIcon>
-            <ListItemText>Map</ListItemText>
-          </ListItem>
-          <ListItem button >
-            <ListItemIcon><StarIcon/></ListItemIcon>
-            <ListItemText>My Favorites</ListItemText>
-          </ListItem>
-          <ListItem button >
-            <ListItemIcon><MailIcon/></ListItemIcon>
-            <ListItemText>Messages</ListItemText>
-          </ListItem>
+            <ListItem button >
+                <ListItemIcon><StarIcon/></ListItemIcon>
+                <ListItemText>My Favorites</ListItemText>
+            </ListItem>
+            <ListItem button >
+                <ListItemIcon><MailIcon/></ListItemIcon>
+                <ListItemText>Messages</ListItemText>
+            </ListItem>
         </List>
         <Divider />
         <List>
-          {['My Profile', 'Logout'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <AccountCircleIcon /> : <ExitToAppIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+            <ListItem button >
+                <ListItemIcon><AccountCircleIcon/></ListItemIcon>
+                <ListItemText>My Profile</ListItemText>
             </ListItem>
-          ))}
+            <ListItem button >
+                <ListItemIcon><ExitToAppIcon/></ListItemIcon>
+                <ListItemText onClick={() => {
+                  props.logout(handleDrawerClose)
+                  }}>Logout</ListItemText>
+            </ListItem>
         </List>
       </Drawer>
       <main
@@ -205,3 +217,13 @@ export default function PersistentDrawerLeft(props) {
     </div>
   );
 }
+
+// const mapStateToProps = (state) => {
+//     return {
+//       user: state.user,
+//       isLoggedIn: state.isLoggedIn
+//     }
+//   }
+
+// export default connect(mapStateToProps, {getSessionUser: getSessionUser})( PersistentDrawerLeft);
+export default PersistentDrawerLeft; 
