@@ -5,6 +5,7 @@
   .Wrapper {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-repeat: no-repeat;
@@ -24,6 +25,10 @@
     justify-content: center;
     background:#F1F5F2;
     border-radius: 16px;
+  }
+
+  .link{
+      margin:10px 0px 0px 0px;
   }
   
   .username {

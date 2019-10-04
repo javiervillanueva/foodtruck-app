@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './reset.css';
 import './UserLanding.css';
 // import { Link } from 'react-router-dom';
-import BurgerDrawer from './BurgerDrawer';
 import UserDrawer from './UserDrawer';
 import Map from './ReactMapGL';
 
