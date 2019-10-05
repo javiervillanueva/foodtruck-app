@@ -12,9 +12,16 @@ export const getSessionVendor = (vendor) => {
     }
 }
 
-export const login = () => {
+export const LoginUser = () => {
     return {
-        type: 'LOGIN'
+        type: 'USER_LOGIN'
+    
+    }
+}
+
+export const LoginVendor = () => {
+    return {
+        type: 'VENDOR_LOGIN'
     
     }
 }
