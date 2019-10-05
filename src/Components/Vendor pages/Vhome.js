@@ -30,12 +30,9 @@ class Vhome extends React.Component {
   render() {
     return (
       <div className="Vhome">
-        { !this.props.isLoggedIn ? 
-          this.props.history.push('/')
-          : 
+          <div className="Header">  <VendorDrawer logout={this.handleLogout}
+                        isLoggedIn={this.props.isLoggedIn} /></div> 
           <div className="Body">
-          <VendorDrawer logout={this.handleLogout}
-                        isLoggedIn={this.props.isLoggedIn} />
             <div className="mainsection">
               <div className="Upper">
                 <div className="Img-icon"></div>
@@ -57,7 +54,6 @@ class Vhome extends React.Component {
               </div>
             </div>
           </div>
-        }
       </div>
     );
   }
