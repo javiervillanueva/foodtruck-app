@@ -1,68 +1,78 @@
-.Vhome{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.Vhome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.Body{
-    display: flex;
-    justify-content: center;
-    width:375px;
-    height:1025px;
-    background:#99e9f2;
-
+.Header {
+  width: 100%;
+  /* height: 10%; */
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
 }
 
-.Upper{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items:center;
-    align-content: space-between;
-    margin-top: 25px;
-    width:325px;
-    height: 475px;
-    border:1px solid black;
-    background:#f8a33b;
-}
-.Img-icon{
-    border:1px solid black;
-    border-radius: 50%;
-    height: 110px;
-    width:110px;
-    background:white;
-}
-.VendorName{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top:10px;
-    border:1px solid black;
-    height: 50px;
-    width:250px;
-    background:white;
-}
-.today{
-    margin-top:10px;
-    border:1px solid black;
-    height: 275px;
-    width:275px;
-    background:white;
+.Body {
+  display: flex;
+  justify-content: center;
+  width: 375px;
+  height: 1025px;
+  background: #99e9f2;
 }
 
-.Lower{
-    margin-top: 25px;
-    width:325px;
-    height: 475px;
-    border:1px solid black;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+.Upper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+  margin-top: 25px;
+  width: 325px;
+  height: 475px;
+  border: 1px solid black;
+  background: #f8a33b;
 }
-.monday{
-   display:flex;
-    height:100px;
-    width:300px;
-    background: #f8a33b;
-    margin-top:30px;
+.Img-icon {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 110px;
+  width: 110px;
+  background: white;
+}
+.VendorName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+  border: 1px solid black;
+  height: 50px;
+  width: 250px;
+  background: white;
+}
+.today {
+  margin-top: 10px;
+  border: 1px solid black;
+  height: 275px;
+  width: 275px;
+  background: white;
+}
+
+.Lower {
+  margin-top: 25px;
+  width: 325px;
+  height: 475px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.monday {
+  display: flex;
+  height: 100px;
+  width: 300px;
+  background: #f8a33b;
+  margin-top: 30px;
 }

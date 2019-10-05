@@ -65,7 +65,7 @@ class Login extends React.Component {
              <Link className="link"to="/vendor/signup">
               Signup for Vendor Account
             </Link> 
-            <Link className="link" to="/vendor/login">login in to User Account</Link>
+            <Link className="link" to="/user/login">login in to User Account</Link>
           </div>
         </div>
       </div>

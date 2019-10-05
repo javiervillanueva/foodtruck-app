@@ -39,12 +39,9 @@ class Vhome extends React.Component {
     console.log('hello there')
     return (
       <div className="Vhome">
-        { this.props.isVendorLoggedIn &&
+          <div className="Header">  <VendorDrawer logout={this.handleLogout}
+                        isLoggedIn={this.props.isLoggedIn} /></div> 
           <div className="Body">
-          <VendorDrawer logout={this.handleLogout}
-                        isVendorLoggedIn={this.props.isVendorLoggedIn} />
-
-          {/* <Route path='/home'/> */}
             <div className="mainsection">
               <div className="Upper">
                 <div className="Img-icon"></div>
@@ -66,7 +63,6 @@ class Vhome extends React.Component {
               </div>
             </div>
           </div>
-         } 
       </div>
     );
   }
