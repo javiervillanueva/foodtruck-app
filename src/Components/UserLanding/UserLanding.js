@@ -27,7 +27,7 @@ class UserLanding extends Component {
       return (
         <div className="user-landing-body">
           <div className="header">
-              <UserDrawer isLoggedIn={this.props.isLoggedIn}
+              <UserDrawer isUserLoggedIn={this.props.isUserLoggedIn}
                           logout={this.handleLogout}/>
           </div>
           <div className="map-container"><Map /></div> 
@@ -53,7 +53,7 @@ class UserLanding extends Component {
 
 function mapStateToProps(state) {
   return {
-    isLoggedIn: state.isLoggedIn
+    isUserLoggedIn: state.isUserLoggedIn
   }
 }
 
