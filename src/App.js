@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getSessionUser, login } from './redux/actions';
+import { getSessionUser, login, getSessionVendor } from './redux/actions';
 import './App.css';
 import Vlogin from './Components/Vendor login/Vendorlogin';
 import SignUp from "./Components/SignUp/SignUp"
@@ -22,7 +22,13 @@ class App extends Component {
         if (response.data.email) this.props.login();
       });
     
-  }
+    axios.get('/api/logged-in-vendor')
+    .then(response => {
+      this.props.getSessionVendor(response.data);
+      if (response.data.email) this.props.login();
+    });
+      
+}
 
   render () {
 
@@ -49,8 +55,9 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     user: state.user,
-    isLoggedIn: state.isLoggedIn
+    isLoggedIn: state.isLoggedIn,
+    vendor: state.vendor
   }
 }
 
-export default connect(mapStateToProps, {getSessionUser: getSessionUser, login: login})(withRouter(App));
+export default connect(mapStateToProps, {getSessionUser: getSessionUser, login: login, getSessionVendor: getSessionVendor})(withRouter(App));

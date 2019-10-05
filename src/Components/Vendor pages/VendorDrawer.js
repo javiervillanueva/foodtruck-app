@@ -83,7 +83,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PersistentDrawerLeft() {
+function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -117,9 +117,13 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
+            { !props.isLoggedIn ?
             <Link to='/user/login'>
                 <button>LOGIN</button>
             </Link>
+            :
+            null
+            }
           </Typography>
         </Toolbar>
       </AppBar>
@@ -164,12 +168,16 @@ export default function PersistentDrawerLeft() {
         </List>
         <Divider />
         <List>
-          {['My Profile', 'Logout'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <AccountCircleIcon /> : <ExitToAppIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+          <ListItem button >
+                <ListItemIcon><AccountCircleIcon/></ListItemIcon>
+                <ListItemText>My Profile</ListItemText>
             </ListItem>
-          ))}
+            <ListItem button >
+                <ListItemIcon><ExitToAppIcon/></ListItemIcon>
+                <ListItemText onClick={() => {
+                  props.logout(handleDrawerClose)
+                  }}>Logout</ListItemText>
+            </ListItem>
         </List>
       </Drawer>
       <main
@@ -205,3 +213,6 @@ export default function PersistentDrawerLeft() {
     </div>
   );
 }
+
+
+export default PersistentDrawerLeft;
