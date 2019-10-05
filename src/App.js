@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSessionUser, LoginUser, LoginVendor, getSessionVendor } from './redux/actions';
 import './App.css';
