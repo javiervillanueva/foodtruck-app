@@ -5,6 +5,13 @@ export const getSessionUser = (user) => {
     }
 }
 
+export const getSessionVendor = (vendor) => {
+    return {
+        type: 'GET_SESSION_VENDOR',
+        payload: vendor
+    }
+}
+
 export const login = () => {
     return {
         type: 'LOGIN'
