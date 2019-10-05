@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getSessionUser, login, getSessionVendor } from './redux/actions';
+import { getSessionUser, LoginUser, LoginVendor, getSessionVendor } from './redux/actions';
 import './App.css';
 import Vlogin from './Components/Vendor login/Vendorlogin';
 import SignUp from "./Components/SignUp/SignUp"
@@ -19,13 +19,18 @@ class App extends Component {
     axios.get('/api/logged-in-user')
       .then(response => {
         this.props.getSessionUser(response.data);
-        if (response.data.email) this.props.login();
+        if (response.data.email) this.props.LoginUser();
       });
     
     axios.get('/api/logged-in-vendor')
     .then(response => {
       this.props.getSessionVendor(response.data);
-      if (response.data.email) this.props.login();
+      if (response.data.email) {
+        this.props.LoginVendor();
+        // this.props.history.push('/vendor/home')
+      } else {
+        this.props.history.push('/')
+      }
     });
       
 }
@@ -40,11 +45,15 @@ class App extends Component {
      
         <Switch>
           <Route exact path='/' component={UserLanding}/>
-          <Route path='/vendor/login' component={Vlogin}/>
-          <Route path='/vendor/signup' component={SignUp} />
-          <Route path='/vendor/home' component={Vhome}/>
-          <Route path='/user/login' component={UserLogin}/>
-          <Route path='/user/signup' component={UserSignUp}/>
+          <Route exact path='/vendor/login' component={Vlogin}/>
+          <Route exact path='/vendor/signup' component={SignUp} />
+          {/* { !this.props.isLoggedIn ? 
+            // this.props.history.push('/')
+            null
+            :  */}
+            <Route path='/vendor' component={Vhome}/>
+          <Route exact path='/user/login' component={UserLogin}/>
+          <Route exact path='/user/signup' component={UserSignUp}/>
         </Switch>
       </div>
     );
@@ -55,9 +64,10 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     user: state.user,
-    isLoggedIn: state.isLoggedIn,
+    isUserLoggedIn: state.isUserLoggedIn,
+    isVendorLoggedIn: state.isVendorLoggedIn,
     vendor: state.vendor
   }
 }
 
-export default connect(mapStateToProps, {getSessionUser: getSessionUser, login: login, getSessionVendor: getSessionVendor})(withRouter(App));
+export default connect(mapStateToProps, {getSessionUser: getSessionUser, LoginUser: LoginUser, LoginVendor: LoginVendor, getSessionVendor: getSessionVendor})(withRouter(App));

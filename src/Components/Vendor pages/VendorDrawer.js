@@ -117,7 +117,7 @@ function PersistentDrawerLeft(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            { !props.isLoggedIn ?
+            { !props.isVendorLoggedIn ?
             <Link to='/user/login'>
                 <button>LOGIN</button>
             </Link>

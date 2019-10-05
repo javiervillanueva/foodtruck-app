@@ -2,7 +2,7 @@ import React from "react";
 // import axios from "axios";
 // import { Link } from "react-router-dom";
 import "./Vhome.css";
-import { getSessionVendor, login, logout } from '../../redux/actions';
+import { getSessionVendor, LoginVendor, logout } from '../../redux/actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import VendorDrawer from './VendorDrawer';
@@ -11,8 +11,16 @@ class Vhome extends React.Component {
   componentDidMount() {
     axios.get('/api/logged-in-vendor')
       .then(response => {
+        console.log('something')
         this.props.getSessionVendor(response.data);
-        if (response.data.email) this.props.login();
+        if (response.data.email) this.props.LoginVendor();
+        else {
+          console.log('asdflkj')
+          if (this.props.location.pathname !== '/vendor/login') {
+            this.props.history.push('/')
+          }
+
+        }
       });
   }
 
@@ -28,14 +36,15 @@ class Vhome extends React.Component {
   }
 
   render() {
+    console.log('hello there')
     return (
       <div className="Vhome">
-        { !this.props.isLoggedIn ? 
-          this.props.history.push('/')
-          : 
+        { this.props.isVendorLoggedIn &&
           <div className="Body">
           <VendorDrawer logout={this.handleLogout}
-                        isLoggedIn={this.props.isLoggedIn} />
+                        isVendorLoggedIn={this.props.isVendorLoggedIn} />
+
+          {/* <Route path='/home'/> */}
             <div className="mainsection">
               <div className="Upper">
                 <div className="Img-icon"></div>
@@ -57,7 +66,7 @@ class Vhome extends React.Component {
               </div>
             </div>
           </div>
-        }
+         } 
       </div>
     );
   }
@@ -66,8 +75,8 @@ class Vhome extends React.Component {
 const mapStateToProps = (state) => {
   return {
     vendor: state.vendor,
-    isLoggedIn: state.isLoggedIn
+    isVendorLoggedIn: state.isVendorLoggedIn
   }
 }
 
-export default connect(mapStateToProps, {getSessionVendor: getSessionVendor, login: login, logout: logout})(Vhome);
+export default connect(mapStateToProps, {getSessionVendor: getSessionVendor, LoginVendor: LoginVendor, logout: logout})(Vhome);
