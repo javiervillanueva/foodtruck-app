@@ -48,6 +48,10 @@ module.exports = {
       getSessionUser: (req, res) => {
         res.send(req.session.user);
       },
+      
+      getSessionVendor: (req, res) => {
+        res.send(req.session.vendor);
+      },
 
       getAllUsers: (req, res) => {
         const db = req.app.get("db");

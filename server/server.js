@@ -41,6 +41,7 @@ app.use(
 app.post("/api/user-signup", controller.createUser);
 app.get("/api/getAllUsers", controller.getAllUsers);
 app.get("/api/logged-in-user", controller.getSessionUser);
+app.get("/api/logged-in-vendor", controller.getSessionVendor);
 app.post("/api/user-login", controller.loginUser);
 app.post("/api/vendor-signup", controller.createVendor);
 app.post("/api/vendor-login", controller.loginVendor);

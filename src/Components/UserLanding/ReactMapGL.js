@@ -24,6 +24,9 @@ componentWillUnmount() {
     window.removeEventListener('resize', this.resizeMap);
 }
 
+onViewportChange = (viewport) => {
+    this.setState({viewport: viewport});    
+}
 
     render() {
         return (
@@ -32,9 +35,7 @@ componentWillUnmount() {
                     {...this.state.viewport} 
                     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
                     mapStyle="mapbox://styles/beardlife/ck13r7bg20gty1clg91fwjz4k"
-                    onViewportChange={viewport => {
-                        this.setState({viewport: viewport});
-                    }}
+                    onViewportChange={this.onViewportChange}
                     style={{borderRadius: '30px'}}
                 />
             </div>
