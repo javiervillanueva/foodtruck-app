@@ -9,7 +9,9 @@ import UserLogin from "./Components/User login/userlogin"
 import UserLanding from './Components/UserLanding/UserLanding';
 import UserSignUp from "./Components/userSignUp/userSignUp";
 import Vhome from "./Components/Vendor pages/Vhome";
-
+import { Menu, MenuList } from '@material-ui/core';
+import VendorMenuCard from "./Components/Menu/menu";
+import Menulist from "./Components/Menu/Menulist";
 
 class App extends Component {
 
@@ -38,6 +40,7 @@ class App extends Component {
           <Route path='/vendor/home' component={Vhome}/>
           <Route path='/user/login' component={UserLogin}/>
           <Route path='/user/signup' component={UserSignUp}/>
+          <Route path='/menu' component={Menulist}/>
         </Switch>
       </div>
     );
