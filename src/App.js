@@ -10,6 +10,9 @@ import UserLanding from './Components/UserLanding/UserLanding';
 import UserSignUp from "./Components/userSignUp/userSignUp";
 // import UserDrawer from './Components/UserLanding/UserDrawer'
 import Vhome from "./Components/Vendor pages/Vhome";
+import { Menu, MenuList } from '@material-ui/core';
+import VendorMenuCard from "./Components/Menu/menu";
+import Menulist from "./Components/Menu/Menulist";
 import axios from 'axios';
 
 
@@ -45,6 +48,12 @@ class App extends Component {
      
         <Switch>
           <Route exact path='/' component={UserLanding}/>
+          <Route path='/vendor/login' component={Vlogin}/>
+          <Route path='/vendor/signup' component={SignUp} />
+          <Route path='/vendor/home' component={Vhome}/>
+          <Route path='/user/login' component={UserLogin}/>
+          <Route path='/user/signup' component={UserSignUp}/>
+          <Route path='/menu' component={Menulist}/>
           <Route exact path='/vendor/login' component={Vlogin}/>
           <Route exact path='/vendor/signup' component={SignUp} />
           {/* { !this.props.isLoggedIn ? 
