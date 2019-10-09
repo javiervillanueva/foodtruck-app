@@ -9,11 +9,9 @@ import VendorDrawer from "./VendorDrawer";
 class Vhome extends React.Component {
   componentDidMount() {
     axios.get("/api/logged-in-vendor").then(response => {
-      console.log("something");
       this.props.getSessionVendor(response.data);
       if (response.data.email) this.props.LoginVendor();
       else {
-        console.log("asdflkj");
         if (this.props.location.pathname !== "/vendor/login") {
           this.props.history.push("/");
         }
@@ -33,6 +31,7 @@ class Vhome extends React.Component {
 
   render() {
     console.log("hello there");
+    console.log(this.props);
     return (
       <div className="Vhome">
         {this.props.isVendorLoggedIn && (
