@@ -14,6 +14,7 @@ import { Menu, MenuList } from '@material-ui/core';
 import VendorMenuCard from "./Components/Menu/menu";
 import Menulist from "./Components/Menu/Menulist";
 import axios from 'axios';
+import VendorSchedule from './Components/Vendor Schedule/VendorSchedule';
 
 
 class App extends Component {
@@ -51,6 +52,7 @@ class App extends Component {
           <Route path='/vendor/login' component={Vlogin}/>
           <Route path='/vendor/signup' component={SignUp} />
           <Route path='/vendor/home' component={Vhome}/>
+          <Route path='/vendor/schedule' component={VendorSchedule}/>
           <Route path='/user/login' component={UserLogin}/>
           <Route path='/user/signup' component={UserSignUp}/>
           <Route path='/menu' component={Menulist}/>
