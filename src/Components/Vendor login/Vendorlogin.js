@@ -42,7 +42,7 @@ class Login extends React.Component {
             <input
               value={this.state.username}
               onChange={this.handleChange}
-              name="email"
+              name="Email"
               className="username"
               type="text"
               placeholder="email"
@@ -65,7 +65,7 @@ class Login extends React.Component {
              <Link className="link"to="/vendor/signup">
               Signup for Vendor Account
             </Link> 
-            <Link className="link" to="/user/login">login in to User Account</Link>
+            <Link className="link" to="/user/login">Login in to User Account</Link>
           </div>
         </div>
       </div>
