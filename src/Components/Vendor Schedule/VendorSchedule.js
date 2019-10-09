@@ -78,20 +78,6 @@ class VendorSchedule extends React.Component {
       });
   }
 
-  handleLogout = (closeDrawer) => {
-    // console.log('fire log out button')
-     return axios.delete('/api/logout').then(() => {
-      this.props.logout();
-      alert('successfully logged out')
-      // closeDrawer();
-      this.props.history.push('/');
-
-    })
-  }
-
-
-
-
 render() {
     console.log(this.state)
     return (
