@@ -99,7 +99,7 @@ module.exports = {
        
            delete vendor.password;
            req.session.vendor = vendor;
-           return res.send("success yay");
+           return res.send(vendor);
          } catch (error) {
            console.log(error);
            res.status(500).send(error);
@@ -173,5 +173,18 @@ module.exports = {
         console.error(error);
         res.status(500).send(error);
       }
+    },
+
+    getVlocations: async (req, res) => {
+        const db = req.app.get("db");
+        const vId = req.session.vendor.id
+        db.query(
+          `SELECT vendor_id, address1, address2, city, state, zipcode FROM vendor_location
+          WHERE vendor_id = ${vId}`
+        )
+        .then(results => {
+          res.send(results)
+      })
+      .catch(error => console.log(error));
     }
 }

@@ -1,0 +1,68 @@
+.VendorSchedule{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ScheduleBody{
+    display: flex;
+    justify-content: center;
+    width:375px;
+    height:1025px;
+    background:#99e9f2;
+
+}
+
+.vsUpper{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    align-content: space-between;
+    margin-top: 25px;
+    width:325px;
+    height: 475px;
+    border:1px solid black;
+    background:#f8a33b;
+}
+.vsImg-icon{
+    border:1px solid black;
+    border-radius: 50%;
+    height: 110px;
+    width:110px;
+    background:white;
+}
+.vsVendorName{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top:10px;
+    border:1px solid black;
+    height: 50px;
+    width:250px;
+    background:white;
+}
+.vstoday{
+    margin-top:10px;
+    border:1px solid black;
+    height: 275px;
+    width:275px;
+    background:white;
+}
+
+.vsLower{
+    margin-top: 25px;
+    width:325px;
+    height: 600px;
+    border:1px solid black;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.vsmonday{
+   display:flex;
+    height:90%;
+    width:300px;
+    background: #f8a33b;
+    margin-top:30px;
+}
