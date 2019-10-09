@@ -30,7 +30,7 @@ render(){
  return(
 <div className="App">
         <div className="Wrapper">
-          <div className="modal">
+          <div className="modal3">
           <h1>Create Account</h1>
             <input
               value={this.state.firstName}
