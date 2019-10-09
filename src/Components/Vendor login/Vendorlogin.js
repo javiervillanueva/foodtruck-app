@@ -17,7 +17,7 @@ class Login extends React.Component {
         this.props.getSessionVendor(loginResult.data)
         this.props.LoginVendor();
         alert('successfully logged in!');
-        this.props.history.push("/vendor");
+        this.props.history.push("/vendor/home");
       }else{
           alert('Please enter log in credentials')
       }

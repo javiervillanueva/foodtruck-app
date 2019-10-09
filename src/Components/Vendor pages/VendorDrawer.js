@@ -151,7 +151,9 @@ function PersistentDrawerLeft(props) {
           ))} */}
           <ListItem button >
             <ListItemIcon><CalendarTodayIcon/></ListItemIcon>
-            <ListItemText>Schedule</ListItemText>
+            <Link to='/vendor/schedule' style={{textDecoration: 'none', color: 'black'}}>
+              <ListItemText onClick={() => handleDrawerClose()}>Schedule</ListItemText>
+            </Link>
           </ListItem>
           <ListItem button >
             <ListItemIcon><KitchenIcon/></ListItemIcon>
@@ -170,7 +172,9 @@ function PersistentDrawerLeft(props) {
         <List>
           <ListItem button >
                 <ListItemIcon><AccountCircleIcon/></ListItemIcon>
-                <ListItemText>My Profile</ListItemText>
+                <Link to='/vendor/home' style={{textDecoration: 'none', color: 'black'}}>
+                  <ListItemText onClick={() => handleDrawerClose()}>My Profile</ListItemText>
+                </Link> 
             </ListItem>
             <ListItem button >
                 <ListItemIcon><ExitToAppIcon/></ListItemIcon>

@@ -5,8 +5,14 @@ import "./Vhome.css";
 import { getSessionVendor, LoginVendor, logout } from "../../redux/actions";
 import { connect } from "react-redux";
 import axios from "axios";
-import VendorDrawer from "./VendorDrawer";
+// import VendorDrawer from "./VendorDrawer";
+// import { Switch, Route } from 'react-router-dom';
+// import VendorSchedule from '../Vendor Schedule/VendorSchedule';
+
+
+
 class Vhome extends React.Component {
+
   componentDidMount() {
     axios.get("/api/logged-in-vendor").then(response => {
       this.props.getSessionVendor(response.data);
@@ -19,49 +25,31 @@ class Vhome extends React.Component {
     });
   }
 
-  handleLogout = closeDrawer => {
-    // console.log('fire log out button')
-    return axios.delete("/api/logout").then(() => {
-      this.props.logout();
-      alert("successfully logged out");
-      // closeDrawer();
-      this.props.history.push("/");
-    });
-  };
+
+
 
   render() {
     console.log("hello there");
     console.log(this.props);
     return (
       <div className="Vhome">
-        {this.props.isVendorLoggedIn && (
-          <div>
-            <div className="Header">
-              {" "}
-              <VendorDrawer
-                logout={this.handleLogout}
-                isVendorLoggedIn={this.props.isVendorLoggedIn}
-              />
-            </div>
-            <div className="Body">
-              <div className="mainsection">
-                <div className="Upper">
-                  <div className="Img-icon"></div>
-                  <div className="VendorName">
-                    {this.props.vendor.vendor_name}
-                  </div>
-                  <div className="today"></div>
-                </div>
-                <div className="Lower">
-                  <h1 className="Schedule">Schedule</h1>
-                  <div className="monday"></div>
-                  <div className=""></div>
-                  <div className="monday"></div>
-                </div>
+          <div className="Body">
+          <div className="mainsection">
+            <div className="Upper">
+              <div className="Img-icon"></div>
+              <div className="VendorName">
+                {this.props.vendor.vendor_name}
               </div>
+              <div className="today"></div>
+            </div>
+            <div className="Lower">
+              <h1 className="Schedule">Schedule</h1>
+              <div className="monday"></div>
+              <div className=""></div>
+              <div className="monday"></div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     );
   }
@@ -74,6 +62,7 @@ const mapStateToProps = state => {
   };
 };
 
+
 export default connect(
   mapStateToProps,
   {
@@ -82,3 +71,6 @@ export default connect(
     logout: logout
   }
 )(Vhome);
+
+
+
