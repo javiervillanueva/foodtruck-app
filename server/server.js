@@ -47,6 +47,7 @@ app.post("/api/vendor-signup", controller.createVendor);
 app.post("/api/vendor-login", controller.loginVendor);
 app.post("/api/user-faves", controller.addTofaves);
 app.post("/api/add-menu-item", controller.addMenuItem);
+app.post("/api/add-vendor-location", controller.addVLocation);
 app.delete('/api/logout', controller.logout);
 
 

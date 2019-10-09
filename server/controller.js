@@ -148,5 +148,30 @@ module.exports = {
           
           res.send("logged out")
         });
+    },
+
+    addVLocation: async (req, res) => {
+      try {
+        const db = req.app.get("db");
+        // const date = req.body.date;
+        const address1 = req.body.address1;
+        const address2 = req.body.address2;
+        const city = req.body.city;
+        const state = req.body.state;
+        const zipcode = req.body.zipcode;
+
+        const addLocation = await db.vendor_location.insert({
+          address1: address1,
+          address2: address2,
+          city: city,
+          state: state,
+          zipcode: zipcode,
+          vendor_id: req.session.vendor.id
+        })
+        res.sendStatus(200);
+      } catch (error) {
+        console.error(error);
+        res.status(500).send(error);
+      }
     }
 }

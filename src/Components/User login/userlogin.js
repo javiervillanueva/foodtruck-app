@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { getSessionUser, login } from '../../redux/actions';
+import { getSessionUser, LoginUser } from '../../redux/actions';
 import {connect} from 'react-redux';
 import "./Userlogin.css";
 
@@ -16,7 +16,7 @@ class Login extends React.Component {
       if (this.state.email && this.state.password) {
         let loginResult = await axios.post("/api/user-login", this.state );
         this.props.getSessionUser(loginResult.data);
-        this.props.login();
+        this.props.LoginUser();
         alert('successfully logged in!');
         this.props.history.push("/");
       }else{
@@ -74,4 +74,4 @@ class Login extends React.Component {
   }
 }
 
-export default connect(null, {login: login, getSessionUser: getSessionUser})(Login);
+export default connect(null, {LoginUser: LoginUser, getSessionUser: getSessionUser})(Login);

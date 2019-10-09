@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { getSessionVendor, login } from '../../redux/actions';
+import { getSessionVendor, LoginVendor } from '../../redux/actions';
 import { connect } from 'react-redux';
 import "./Vlogin.css";
 
@@ -14,7 +14,8 @@ class Login extends React.Component {
     try {
       if (this.state.email && this.state.password) {
         await axios.post("/api/vendor-login", this.state);
-        this.props.login();
+        this.props.getSessionVendor()
+        this.props.LoginVendor();
         alert('successfully logged in!');
         this.props.history.push("/vendor/home");
       }else{
@@ -64,7 +65,7 @@ class Login extends React.Component {
              <Link className="link"to="/vendor/signup">
               Signup for Vendor Account
             </Link> 
-            <Link className="link" to="/vendor/login">login in to User Account</Link>
+            <Link className="link" to="/user/login">login in to User Account</Link>
           </div>
         </div>
       </div>
@@ -72,4 +73,4 @@ class Login extends React.Component {
   }
 }
 
-export default connect(null, { getSessionVendor: getSessionVendor, login: login})(Login);
+export default connect(null, { getSessionVendor: getSessionVendor, LoginVendor: LoginVendor})(Login);
