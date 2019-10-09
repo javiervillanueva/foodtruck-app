@@ -3,9 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import axios from "axios";
 // import { Link } from "react-router-dom";
 import "./VendorSchedule.css";
-import { getSessionVendor, logout } from '../../redux/actions';
+import { getSessionVendor, LoginVendor, logout } from '../../redux/actions';
 import { connect } from 'react-redux';
-import VendorDrawer from '../Vendor pages/VendorDrawer';
+// import VendorDrawer from '../Vendor pages/VendorDrawer';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
@@ -74,7 +74,7 @@ class VendorSchedule extends React.Component {
     axios.get('/api/logged-in-vendor')
       .then(response => {
         this.props.getSessionVendor(response.data);
-        // if (response.data.email) this.props.login();
+        if (response.data.email) this.props.LoginVendor();
       });
   }
 
@@ -83,8 +83,7 @@ render() {
     return (
       <div className="VendorSchedule">
           <div className="ScheduleBody">
-          <VendorDrawer logout={this.handleLogout}
-                        isLoggedIn={this.props.isLoggedIn} />
+          
             <div className="vsmainsection">
               <div className="vsLower">
                 <h1 className="vsSchedule">Pancho</h1>
@@ -175,4 +174,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {getSessionVendor: getSessionVendor, logout: logout})(VendorSchedule);
+export default connect(mapStateToProps, {getSessionVendor: getSessionVendor, LoginVendor: LoginVendor, logout: logout})(VendorSchedule);
