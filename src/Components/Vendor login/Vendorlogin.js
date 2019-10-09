@@ -13,11 +13,11 @@ class Login extends React.Component {
   handleLogin = async () => {
     try {
       if (this.state.email && this.state.password) {
-        await axios.post("/api/vendor-login", this.state);
-        this.props.getSessionVendor()
+       const loginResult= await axios.post("/api/vendor-login", this.state);
+        this.props.getSessionVendor(loginResult.data)
         this.props.LoginVendor();
         alert('successfully logged in!');
-        this.props.history.push("/vendor/home");
+        this.props.history.push("/vendor");
       }else{
           alert('Please enter log in credentials')
       }
