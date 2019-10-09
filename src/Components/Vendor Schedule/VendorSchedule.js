@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import axios from "axios";
 // import { Link } from "react-router-dom";
 import "./VendorSchedule.css";
-import { getSessionVendor, login, logout } from '../../redux/actions';
+import { getSessionVendor, logout } from '../../redux/actions';
 import { connect } from 'react-redux';
 import VendorDrawer from '../Vendor pages/VendorDrawer';
 import TextField from '@material-ui/core/TextField';
@@ -41,8 +41,8 @@ class VendorSchedule extends React.Component {
         address2: "",
         city: "",
         state: "",
-        zip: "",
-        date: new Date ()
+        zipcode: "",
+        date: ""
     };
 
     handleDateChange = event => this.setState({
@@ -57,6 +57,14 @@ class VendorSchedule extends React.Component {
         try {
             await axios.post("/api/add-vendor-location", this.state);
             alert("added schedule event");
+            this.setState ({
+              address1: "",
+              address2: "",
+              city: "",
+              state: "",
+              zipcode: "",
+              date: ""
+            })
         } catch (error) {
             console.log(error)
         }
@@ -66,7 +74,7 @@ class VendorSchedule extends React.Component {
     axios.get('/api/logged-in-vendor')
       .then(response => {
         this.props.getSessionVendor(response.data);
-        if (response.data.email) this.props.login();
+        // if (response.data.email) this.props.login();
       });
   }
 
@@ -90,6 +98,7 @@ render() {
         type="date"
         name="date"
         format="yyyy-mm-dd"
+        defaultValue="2019-01-01"
         value={this.state.date}
         onChange={this.handleDateChange}
         className={useStyles.textField}
@@ -135,10 +144,10 @@ render() {
       />
       <TextField
         id="standard-name"
-        label="Zip"
-        name="zip"
+        label="Zipcode"
+        name="zipcode"
         className={useStyles.textField}
-        value={this.state.zip}
+        value={this.state.zipcode}
         onChange={this.handleChange}
         margin="normal"
       />
