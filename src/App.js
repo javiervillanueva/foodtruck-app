@@ -1,27 +1,42 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { updateUser } from './redux/actions';
+import { getSessionUser, LoginUser, LoginVendor, getSessionVendor } from './redux/actions';
 import './App.css';
 import Vlogin from './Components/Vendor login/Vendorlogin';
 import SignUp from "./Components/SignUp/SignUp"
 import UserLogin from "./Components/User login/userlogin"
 import UserLanding from './Components/UserLanding/UserLanding';
 import UserSignUp from "./Components/userSignUp/userSignUp";
+// import UserDrawer from './Components/UserLanding/UserDrawer'
 import Vhome from "./Components/Vendor pages/Vhome";
 import { Menu, MenuList } from '@material-ui/core';
 import VendorMenuCard from "./Components/Menu/menu";
 import Menulist from "./Components/Menu/Menulist";
+import axios from 'axios';
+
 
 class App extends Component {
 
   componentDidMount() {
-    const user = {
-      name: 'sam',
-      height: '5ft'
-    }
-    this.props.updateUser(user);
-  }
+    axios.get('/api/logged-in-user')
+      .then(response => {
+        this.props.getSessionUser(response.data);
+        if (response.data.email) this.props.LoginUser();
+      });
+    
+    axios.get('/api/logged-in-vendor')
+    .then(response => {
+      this.props.getSessionVendor(response.data);
+      if (response.data.email) {
+        this.props.LoginVendor();
+        // this.props.history.push('/vendor/home')
+      } else {
+        this.props.history.push('/')
+      }
+    });
+      
+}
 
   render () {
 
@@ -31,8 +46,6 @@ class App extends Component {
     return (
       <div className="App">
      
-    
-       
         <Switch>
           <Route exact path='/' component={UserLanding}/>
           <Route path='/vendor/login' component={Vlogin}/>
@@ -41,6 +54,15 @@ class App extends Component {
           <Route path='/user/login' component={UserLogin}/>
           <Route path='/user/signup' component={UserSignUp}/>
           <Route path='/menu' component={Menulist}/>
+          <Route exact path='/vendor/login' component={Vlogin}/>
+          <Route exact path='/vendor/signup' component={SignUp} />
+          {/* { !this.props.isLoggedIn ? 
+            // this.props.history.push('/')
+            null
+            :  */}
+            <Route path='/vendor' component={Vhome}/>
+          <Route exact path='/user/login' component={UserLogin}/>
+          <Route exact path='/user/signup' component={UserSignUp}/>
         </Switch>
       </div>
     );
@@ -50,8 +72,11 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    isUserLoggedIn: state.isUserLoggedIn,
+    isVendorLoggedIn: state.isVendorLoggedIn,
+    vendor: state.vendor
   }
 }
 
-export default connect(mapStateToProps, {updateUser: updateUser})(withRouter(App));
+export default connect(mapStateToProps, {getSessionUser: getSessionUser, LoginUser: LoginUser, LoginVendor: LoginVendor, getSessionVendor: getSessionVendor})(withRouter(App));

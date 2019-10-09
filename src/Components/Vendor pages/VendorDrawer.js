@@ -15,9 +15,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+// import InboxIcon from '@material-ui/icons/MoveToInbox';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import ListIcon from '@material-ui/icons/List';
+// import ListIcon from '@material-ui/icons/List';
 import MailIcon from '@material-ui/icons/Mail';
 import KitchenIcon from '@material-ui/icons/Kitchen';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
@@ -83,7 +83,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PersistentDrawerLeft() {
+function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -117,9 +117,13 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
+            { !props.isVendorLoggedIn ?
             <Link to='/user/login'>
                 <button>LOGIN</button>
             </Link>
+            :
+            null
+            }
           </Typography>
         </Toolbar>
       </AppBar>
@@ -164,12 +168,16 @@ export default function PersistentDrawerLeft() {
         </List>
         <Divider />
         <List>
-          {['My Profile', 'Logout'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <AccountCircleIcon /> : <ExitToAppIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+          <ListItem button >
+                <ListItemIcon><AccountCircleIcon/></ListItemIcon>
+                <ListItemText>My Profile</ListItemText>
             </ListItem>
-          ))}
+            <ListItem button >
+                <ListItemIcon><ExitToAppIcon/></ListItemIcon>
+                <ListItemText onClick={() => {
+                  props.logout(handleDrawerClose)
+                  }}>Logout</ListItemText>
+            </ListItem>
         </List>
       </Drawer>
       <main
@@ -205,3 +213,6 @@ export default function PersistentDrawerLeft() {
     </div>
   );
 }
+
+
+export default PersistentDrawerLeft;

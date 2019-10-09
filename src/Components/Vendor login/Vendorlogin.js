@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { getSessionVendor, LoginVendor } from '../../redux/actions';
+import { connect } from 'react-redux';
 import "./Vlogin.css";
 
 class Login extends React.Component {
@@ -12,6 +14,9 @@ class Login extends React.Component {
     try {
       if (this.state.email && this.state.password) {
         await axios.post("/api/vendor-login", this.state);
+        this.props.getSessionVendor()
+        this.props.LoginVendor();
+        alert('successfully logged in!');
         this.props.history.push("/vendor/home");
       }else{
           alert('Please enter log in credentials')
@@ -21,6 +26,12 @@ class Login extends React.Component {
     }
   };
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  onKeyPress = (e) => {
+    if (e.which === 13) {
+        this.handleLogin();
+    }
+  }
 
   render() {
     return (
@@ -43,16 +54,18 @@ class Login extends React.Component {
               className="username"
               type="password"
               placeholder="Password"
+              onKeyPress={this.onKeyPress}
             />
             <div className="submit" onClick={this.handleLogin}>
               <span>Login</span>
             </div>
-            <Link className="submit" to="/user/signup">
+            <Link className="link" to="/user/signup">
               Signup for Foodie Account
             </Link> 
-             <Link className="submit" to="/vendor/signup">
+             <Link className="link"to="/vendor/signup">
               Signup for Vendor Account
             </Link> 
+            <Link className="link" to="/user/login">login in to User Account</Link>
           </div>
         </div>
       </div>
@@ -60,4 +73,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default connect(null, { getSessionVendor: getSessionVendor, LoginVendor: LoginVendor})(Login);
