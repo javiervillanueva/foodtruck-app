@@ -10,9 +10,12 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    /* also changed this */
+    background-image:url('./images/Artboard.png');
+    width:100vw;
   }
   
-  .modal {
+  .modal4 {
     height: 400px;
     width: 350px;
     box-shadow: 5px 5px 15px black;
@@ -22,13 +25,13 @@
     padding-top: 30px;
     color:black;
     justify-content: center;
-    background:#F1F5F2;
+    /* background-color:rgba(255, 255, 255, 0.87); */
     border-radius: 16px;
   }
   
   .username {
     font-size: 20px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.3);
     color: #fff;
     border: none;
     width: 300px;
@@ -60,4 +63,14 @@
     color:black;
     text-decoration: none;
   }
-  
+  /* started here*/
+  a:link {
+    text-decoration: none;
+    font-weight: lighter;
+    
+  }
+
+a{
+color:#31A6A6;
+
+}
