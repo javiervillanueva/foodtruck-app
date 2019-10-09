@@ -159,6 +159,7 @@ module.exports = {
         const city = req.body.city;
         const state = req.body.state;
         const zipcode = req.body.zipcode;
+        const date = req.body.date;
 
         const addLocation = await db.vendor_location.insert({
           address1: address1,
@@ -166,7 +167,8 @@ module.exports = {
           city: city,
           state: state,
           zipcode: zipcode,
-          vendor_id: req.session.vendor.id
+          vendor_id: req.session.vendor.id,
+          date: date
         })
         res.sendStatus(200);
       } catch (error) {
@@ -179,7 +181,7 @@ module.exports = {
         const db = req.app.get("db");
         const vId = req.session.vendor.id
         db.query(
-          `SELECT vendor_id, address1, address2, city, state, zipcode FROM vendor_location
+          `SELECT vendor_id, address1, address2, city, state, zipcode, date FROM vendor_location
           WHERE vendor_id = ${vId}`
         )
         .then(results => {
