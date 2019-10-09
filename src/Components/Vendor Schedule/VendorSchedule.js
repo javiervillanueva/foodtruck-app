@@ -180,4 +180,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {getSessionVendor: getSessionVendor, login: login, logout: logout})(VendorSchedule);
+export default connect(mapStateToProps, {getSessionVendor: getSessionVendor, logout: logout})(VendorSchedule);
