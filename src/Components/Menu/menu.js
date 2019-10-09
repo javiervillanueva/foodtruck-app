@@ -7,7 +7,7 @@ export default class VendorMenuCard extends React.Component {
     render() {
         return (
 
-            <div className="Wrapper">
+            <div className="wrapper">
                 <div className= "topBox">
                     <div className="foodImage"></div>
                     <div className ="textBoxes">

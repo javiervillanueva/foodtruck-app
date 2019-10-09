@@ -30,7 +30,7 @@ class Signup extends React.Component {
     return (
       <div className="App">
         <div className="Wrapper">
-          <div className="modal">
+          <div className="modal1">
           <h1>Create Account</h1>
             <input
               value={this.state.vendorName}

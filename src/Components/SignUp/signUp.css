@@ -13,7 +13,7 @@
     background-position: center;
   }
   
-  .modal {
+  .modal1 {
     height: 475px;
     width: 350px;
     box-shadow: 5px 5px 15px black;
@@ -23,7 +23,6 @@
     padding-top: 30px;
     color:black;
     justify-content: center;
-    background:#F1F5F2;
     border-radius: 16px;
   }
   

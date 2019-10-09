@@ -38,7 +38,7 @@ class Login extends React.Component {
     return (
       <div className="App">
         <div className="Wrapper">
-          <div className="modal">
+          <div className="modal2">
               <h1>Log in to User Account</h1>
             <input
               value={this.state.username}
