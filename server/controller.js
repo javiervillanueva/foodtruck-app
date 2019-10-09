@@ -99,7 +99,7 @@ module.exports = {
        
            delete vendor.password;
            req.session.vendor = vendor;
-           return res.send("success yay");
+           return res.send(vendor);
          } catch (error) {
            console.log(error);
            res.status(500).send(error);
