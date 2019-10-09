@@ -1,0 +1,74 @@
+.App{
+    display:flex;
+   
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Wrapper{
+    height:160px;
+    width: 350px;
+    
+    border:1px solid black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-top:20px
+    
+}
+
+.foodImage{
+    height:60px;
+    width:60px;
+    border-radius: 100%;
+    background: green;
+    margin-left: 15px;
+    margin-top: 15px;
+   
+}
+.topBox{
+    height:130px;
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.bottompart{
+    height:145px;
+    width:350px;
+    
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discription{
+    height:70px;
+    width: 320px;
+    background: gray;
+    
+    
+}
+
+.textBoxes{
+    height:30px;
+    width:230px;
+    margin-top:15px;
+    margin-left:15px;
+}
+
+.moneyBox{
+    height:20px;
+    width:120px;
+    background: teal;
+    margin-top: 5px;
+}
+.foodBox{
+    background: pink;
+    height: 35px;
+    width:240px;
+}
