@@ -28,12 +28,13 @@
     align-items: center;
     margin-bottom: 10px;
     border-radius: 50px;
+    border-bottom: 1px solid black;
 }
 
 .event-list-container {
     width: 95%;
     height: 60%;
-    background: darkgray;
+    /* background: rgba(250, 249, 249, 0.6); */
     color: white;
     display: flex;
     flex-direction: column;
@@ -93,6 +94,7 @@ button {
     margin: 2px;
     border-radius: 5px;
     background: white;
+    font-size: 18px;
 
 }
 
