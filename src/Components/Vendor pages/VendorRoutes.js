@@ -1,6 +1,4 @@
 import React from "react";
-// import axios from "axios";
-// import { Link } from "react-router-dom";
 import "./Vhome.css";
 import { getSessionVendor, LoginVendor, logout } from "../../redux/actions";
 import { connect } from "react-redux";
@@ -9,6 +7,7 @@ import VendorDrawer from "./VendorDrawer";
 import { Switch, Route, Link } from 'react-router-dom';
 import VendorSchedule from './VendorSchedule'
 import Vhome from '../Vendor pages/Vhome';
+import Menulist from '../Menu/Menulist';
 
 
 
@@ -23,6 +22,9 @@ import Vhome from '../Vendor pages/Vhome';
       else {
         if (this.props.location.pathname !== "/vendor/login") {
           this.props.history.push("/vendor/login");
+        }
+        if (this.props.location.pathname === "/vendor") {
+          this.props.history.push("/vendor/home");
         }
       }
     });
@@ -59,6 +61,7 @@ import Vhome from '../Vendor pages/Vhome';
               <Switch>
                 <Route path='/vendor/home' component={Vhome}/>
                 <Route path='/vendor/schedule' component={VendorSchedule}/>
+                <Route path='/vendor/menu' component={Menulist}/>
 
               </Switch>
             

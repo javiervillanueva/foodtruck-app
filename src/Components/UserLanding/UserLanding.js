@@ -32,19 +32,14 @@ class UserLanding extends Component {
           </div>
           <div className="map-container"><Map /></div> 
           <div className="event-list-container">
-            EVENTS
+            {/* EVENTS */}
             <div className="event-summary">
               <div className="event-profile-container">
                 <div className="event-profile"></div>
               </div>
               <div className="event-details">DETAILS</div>
             </div>
-            <div className="event-summary">
-              <div className="event-profile-container">
-                <div className="event-profile"></div>
-              </div>
-              <div className="event-details">DETAILS</div>
-            </div>
+            
           </div>
         </div>
       );
