@@ -143,12 +143,6 @@ function PersistentDrawerLeft(props) {
         </div>
         <Divider />
         <List>
-          {/* {['Schedule', ' Food Menu', 'Specials', 'Messages'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <CalendarTodayIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))} */}
           <ListItem button >
             <ListItemIcon><CalendarTodayIcon/></ListItemIcon>
             <Link to='/vendor/schedule' style={{textDecoration: 'none', color: 'black'}}>
@@ -157,7 +151,9 @@ function PersistentDrawerLeft(props) {
           </ListItem>
           <ListItem button >
             <ListItemIcon><KitchenIcon/></ListItemIcon>
-            <ListItemText>Food Menu</ListItemText>
+            <Link to='/vendor/menu' style={{textDecoration: 'none', color: 'black'}}>
+                  <ListItemText onClick={() => handleDrawerClose()}>Food Menu</ListItemText>
+                </Link> 
           </ListItem>
           <ListItem button >
             <ListItemIcon><FastfoodIcon/></ListItemIcon>
