@@ -25,7 +25,7 @@
     padding-top: 30px;
     color:black;
     justify-content: center;
-    /* background-color:rgba(255, 255, 255, 0.87); */
+    background-color:rgba(255, 255, 255, 0.5); 
     border-radius: 16px;
   }
   
@@ -62,6 +62,7 @@
     align-items: center;
     color:black;
     text-decoration: none;
+    border-radius: 3px;
   }
   /* started here*/
   a:link {
@@ -71,6 +72,6 @@
   }
 
 a{
-color:#31A6A6;
+color:rgb(80, 71, 71);
 
 }
