@@ -31,3 +31,11 @@ export const logout = () => {
     
     }
 }
+
+export const getTodaysEvents = (events) => {
+    return {
+        type: 'GET_TODAYS_EVENTS',
+        payload: events
+    
+    }
+}
