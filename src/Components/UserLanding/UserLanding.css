@@ -33,11 +33,12 @@
 .event-list-container {
     width: 95%;
     height: 60%;
-    background: darkgray;
+    /* background: rgba(250, 249, 249, 0.6); */
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* border: 1px solid rgb(0, 0, 0, .6); */
     border-radius: 5px;
 
 }
