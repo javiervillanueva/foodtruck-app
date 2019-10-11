@@ -18,8 +18,8 @@
 .Body {
   display: flex;
   justify-content: center;
-  width: 375px;
-  height: 1025px;
+  width: 100vw;
+  height: auto;
   background: #99e9f2;
 }
 
@@ -31,16 +31,18 @@
   align-content: space-between;
   margin-top: 25px;
   width: 325px;
-  height: 475px;
+  height: 600px;
   border: 1px solid black;
   background: #f8a33b;
 }
 .Img-icon {
-  border: 1px solid black;
-  border-radius: 50%;
-  height: 110px;
-  width: 110px;
-  background: white;
+    width: 55%;
+    height: 30%;
+    /* border: 1px solid black; */
+    background: url('../UserLanding/Artboard-2.png') no-repeat center center;
+    background-size: 170px 170px;
+    border-radius: 50%;
+
 }
 .VendorName {
   display: flex;

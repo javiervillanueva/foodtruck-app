@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import {connect} from 'react-redux';
-import { connect } from 'net';
+import './vendorDisplayCard.css';
 
 
 class VendorDisplayCard extends Component{
