@@ -45,6 +45,7 @@ class App extends Component {
             null
             :  */}
           <Route path='/vendor' component={VendorRoutes}/>
+          <Route path='/user/signup' component={UserSignUp}/>
           <Route exact path='/user/login' component={UserLogin}/>
           <Route exact path='/user/signup' component={UserSignUp}/>
         </Switch>

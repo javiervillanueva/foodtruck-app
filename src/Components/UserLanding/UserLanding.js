@@ -7,6 +7,7 @@ import Map from './ReactMapGL';
 import {connect} from 'react-redux';
 import { logout } from '../../redux/actions'
 import axios from 'axios';
+import VendorDisplayCard from "./vendorDisplayCard";
 
 
 class UserLanding extends Component {
@@ -32,14 +33,8 @@ class UserLanding extends Component {
           </div>
           <div className="map-container"><Map /></div> 
           <div className="event-list-container">
-            {/* EVENTS */}
-            <div className="event-summary">
-              <div className="event-profile-container">
-                <div className="event-profile"></div>
-              </div>
-              <div className="event-details">DETAILS</div>
-            </div>
-            
+            EVENTS
+            <VendorDisplayCard/>
           </div>
         </div>
       );
