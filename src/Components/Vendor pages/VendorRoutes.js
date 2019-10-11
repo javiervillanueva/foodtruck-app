@@ -63,9 +63,7 @@ import Menulist from '../Menu/Menulist';
                 <Route path='/vendor/home' component={Vhome}/>
                 <Route path='/vendor/schedule' component={VendorSchedule}/>
                 <Route path='/vendor/scheduleview' component={VendorScheduleView}/>
-
                 <Route path='/vendor/menu' component={Menulist}/>
-
               </Switch>
             
             

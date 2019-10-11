@@ -1,35 +1,35 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import axios from "axios";
+// import { makeStyles } from '@material-ui/core/styles';
+// import axios from "axios";
 // import { Link } from "react-router-dom";
 import "./VendorScheduleView.css";
 import { getSessionVendor, LoginVendor, logout } from '../../redux/actions';
 import { connect } from 'react-redux';
 // import VendorDrawer from '../Vendor pages/VendorDrawer';
 // import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 
 
 
-const useStyles = makeStyles(theme => (
-    {
-    container: {
-      display: 'flex',
-      flexWrap: 'wrap',
-    },
-    button: {
-        margin: theme.spacing(1),
-    },
-    input: {
-        display: 'none',
-    },
-    textField: 
-    {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: 200,
-    },
-  }));
+// const useStyles = makeStyles(theme => (
+//     {
+//     container: {
+//       display: 'flex',
+//       flexWrap: 'wrap',
+//     },
+//     button: {
+//         margin: theme.spacing(1),
+//     },
+//     input: {
+//         display: 'none',
+//     },
+//     textField: 
+//     {
+//       marginLeft: theme.spacing(1),
+//       marginRight: theme.spacing(1),
+//       width: 200,
+//     },
+//   }));
 
 
 
