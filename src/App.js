@@ -14,7 +14,7 @@ import VendorRoutes from "./Components/Vendor pages/VendorRoutes";
 // import VendorMenuCard from "./Components/Menu/menu";
 import Menulist from "./Components/Menu/Menulist";
 import axios from 'axios';
-// import VendorSchedule from './Components/Vendor Schedule/VendorSchedule';
+// import VendorSchedule from './Components/Vendor pages/VendorSchedule';
 
 
 class App extends Component {

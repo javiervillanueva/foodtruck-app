@@ -42,7 +42,7 @@ class VendorSchedule extends React.Component {
         city: "",
         state: "",
         zipcode: "",
-        date: ""
+        date: "2019-01-01"
     };
 
     handleDateChange = event => this.setState({
@@ -55,7 +55,8 @@ class VendorSchedule extends React.Component {
 
     handleSubmit = async () => {
         try {
-            await axios.post("/api/add-vendor-location", this.state);
+          if (this.state.address1 && this.state.city && this.state.state && this.state.zipcode && this.state.date) {
+           await axios.post("/api/add-vendor-location", this.state);
             alert("added schedule event");
             this.setState ({
               address1: "",
@@ -63,8 +64,11 @@ class VendorSchedule extends React.Component {
               city: "",
               state: "",
               zipcode: "",
-              date: ""
+              date: "2019-01-01"
             })
+          } else {
+            alert('No blank fields allowed');
+          }
         } catch (error) {
             console.log(error)
         }
@@ -79,14 +83,13 @@ class VendorSchedule extends React.Component {
   }
 
 render() {
-    console.log(this.state)
-    return (
+      return (
       <div className="VendorSchedule">
           <div className="ScheduleBody">
           
             <div className="vsmainsection">
               <div className="vsLower">
-                <h1 className="vsSchedule">Pancho</h1>
+                <h1 className="vsSchedule">Hello</h1>
                 <div className ="vsmonday">
                     
                     <div className="scheduleForm">
@@ -97,7 +100,6 @@ render() {
         type="date"
         name="date"
         format="yyyy-mm-dd"
-        defaultValue="2019-01-01"
         value={this.state.date}
         onChange={this.handleDateChange}
         className={useStyles.textField}
