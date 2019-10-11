@@ -46,7 +46,6 @@ class App extends Component {
             :  */}
           <Route path='/vendor' component={VendorRoutes}/>
           <Route path='/user/signup' component={UserSignUp}/>
-          <Route path='/menu' component={Menulist}/>
           <Route exact path='/user/login' component={UserLogin}/>
           <Route exact path='/user/signup' component={UserSignUp}/>
         </Switch>
