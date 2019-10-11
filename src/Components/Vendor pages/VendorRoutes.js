@@ -7,7 +7,8 @@ import { connect } from "react-redux";
 import axios from "axios";
 import VendorDrawer from "./VendorDrawer";
 import { Switch, Route, Link } from 'react-router-dom';
-import VendorSchedule from './VendorSchedule'
+import VendorSchedule from './VendorSchedule';
+import VendorScheduleView from './VendorScheduleView';
 import Vhome from '../Vendor pages/Vhome';
 
 
@@ -59,6 +60,8 @@ import Vhome from '../Vendor pages/Vhome';
               <Switch>
                 <Route path='/vendor/home' component={Vhome}/>
                 <Route path='/vendor/schedule' component={VendorSchedule}/>
+                <Route path='/vendor/scheduleview' component={VendorScheduleView}/>
+
 
               </Switch>
             
