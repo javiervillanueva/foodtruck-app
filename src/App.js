@@ -37,19 +37,12 @@ class App extends Component {
      
         <Switch>
           <Route exact path='/' component={UserLanding}/>
-          <Route path='/vendor/login' component={Vlogin}/>
-          <Route path='/vendor/signup' component={SignUp} />
-          
-          <Route path='/user/login' component={UserLogin}/>
-          <Route path='/user/signup' component={UserSignUp}/>
-          <Route path='/menu' component={Menulist}/>
           <Route exact path='/vendor/login' component={Vlogin}/>
           <Route exact path='/vendor/signup' component={SignUp} />
-          {/* { !this.props.isLoggedIn ? 
-            // this.props.history.push('/')
-            null
-            :  */}
+          <Route path='/user/login' component={UserLogin}/>
           <Route path='/vendor' component={VendorRoutes}/>
+          <Route path='/user/signup' component={UserSignUp}/>
+          <Route path='/menu' component={Menulist}/>
           <Route exact path='/user/login' component={UserLogin}/>
           <Route exact path='/user/signup' component={UserSignUp}/>
         </Switch>
