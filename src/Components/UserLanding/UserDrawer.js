@@ -116,6 +116,7 @@ function PersistentDrawerLeft(props) {
         })}
       >
         <Toolbar style={{background: '#F8A33B',  display: 'flex', alignItems: 'center', justifyContent: 'space-between', boxShadow: '1px 5px 13px rgb(0, 0, 0, .7)'}}>
+          {props.isUserLoggedIn === true ?
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -125,6 +126,8 @@ function PersistentDrawerLeft(props) {
           >
             <MenuIcon />
           </IconButton>
+          : null
+          }
           <Typography variant="h6" noWrap>
               { props.isUserLoggedIn === true ? 
                 null :
