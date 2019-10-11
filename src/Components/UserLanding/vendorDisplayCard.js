@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import {connect} from 'react-redux';
-import { connect } from 'net';
 
 
 class VendorDisplayCard extends Component{
