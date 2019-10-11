@@ -24,19 +24,7 @@ class App extends Component {
       .then(response => {
         this.props.getSessionUser(response.data);
         if (response.data.email) this.props.LoginUser();
-      });
-    
-    axios.get('/api/logged-in-vendor')
-    .then(response => {
-      this.props.getSessionVendor(response.data);
-      if (response.data.email) {
-        this.props.LoginVendor();
-        // this.props.history.push('/vendor/home')
-      } else {
-        this.props.history.push('/')
-      }
-    });
-      
+      });   
 }
 
   render () {
