@@ -45,3 +45,9 @@ export const getAllVendors = (vendors) => {
         payload: vendors
     }
 }
+export const getEventsById = (vendorEvents) => {
+    return {
+        type: 'GET_EVENT_BY_ID',
+        payload: vendorEvents
+    }
+}
