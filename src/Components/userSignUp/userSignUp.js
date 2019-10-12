@@ -31,7 +31,7 @@ render(){
 <div className="App">
         <div className="Wrapper">
           <div className="modal3">
-          <h1>Create Account</h1>
+          <h1 className="createAccount">Create Account</h1>
             <input
               value={this.state.firstName}
               onChange={this.handleChange}

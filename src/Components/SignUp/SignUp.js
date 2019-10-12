@@ -31,7 +31,7 @@ class Signup extends React.Component {
       <div className="App">
         <div className="Wrapper">
           <div className="modal1">
-          <h1>Create Account</h1>
+          <h1 className="createAccount2">Create Account</h1>
             <input
               value={this.state.vendorName}
               onChange={this.handleChange}
