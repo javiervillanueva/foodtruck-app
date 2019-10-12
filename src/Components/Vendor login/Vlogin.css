@@ -16,7 +16,7 @@
   }
   
   .modal4 {
-    height: 400px;
+    height: 475px;
     width: 350px;
     box-shadow: 5px 5px 15px black;
     display: flex;
@@ -28,7 +28,15 @@
     background-color:rgba(255, 255, 255, 0.5); 
     border-radius: 16px;
   }
-  
+  .username::placeholder{
+    color:rgb(238, 238, 238);
+}
+.logInto{
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  margin-bottom: 35px;
+}
+
   .username {
     font-size: 20px;
     background: rgba(255, 255, 255, 0.3);
@@ -39,6 +47,7 @@
     margin: 15px 0px;
     padding-left: 5px;
   }
+
   
   .password {
     font-size: 20px;
@@ -74,4 +83,8 @@
 a{
 color:rgb(80, 71, 71);
 
+}
+
+h1{
+  font-family: Roboto, sans-serif;
 }

@@ -14,7 +14,7 @@
   }
   
   .modal1 {
-    height: 400px;
+    height: 475px;
     width: 350px;
     box-shadow: 5px 5px 15px black;
     display: flex;
@@ -26,7 +26,15 @@
     background-color:rgba(255, 255, 255, 0.5); 
     border-radius: 16px;
   }
-  
+  .username::placeholder{
+    color:rgb(238, 238, 238);
+}
+
+.createAccount2{
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
   .username {
     font-size: 20px;
     background: rgba(0, 0, 0, 0.3);
