@@ -43,3 +43,13 @@
     border-radius: 5px;
 
 }
+
+header {
+    overflow: none;
+}
+
+.games-list {
+    width: auto;
+    height: 100%;
+    overflow: auto;
+}

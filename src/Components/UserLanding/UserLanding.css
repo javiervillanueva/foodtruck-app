@@ -28,15 +28,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    /* margin-bottom: 10px; */
-    border-radius: 50px;
-    /* position: fixed; */
-}
-
-h1 {
-    /* height: 300px; */
-    margin: 20px;
+    margin-bottom: 10px;
 }
 
 .event-list-container {
