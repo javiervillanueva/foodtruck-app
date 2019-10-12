@@ -12,8 +12,10 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles(theme => (
     {
     container: {
+      height: '500px',
       display: 'flex',
-      flexWrap: 'wrap',
+      flexDirection: 'column',
+      alignItems: 'center'
     },
     button: {
         margin: theme.spacing(1),
@@ -23,6 +25,8 @@ const useStyles = makeStyles(theme => (
     },
     textField: 
     {
+      display: 'flex',
+      justifyContent: 'space-around',
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
       width: 200,
@@ -89,7 +93,7 @@ render() {
                 <div className ="vsmonday">
                     
                     <div className="ScheduleForm">
-                    <form className={useStyles.container} noValidate>
+                    <form style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', width: '200px'}} noValidate>
       <TextField
         id="date"
         label="Date"
@@ -98,7 +102,8 @@ render() {
         format="yyyy-mm-dd"
         value={this.state.date}
         onChange={this.handleDateChange}
-        className={useStyles.textField}
+        // className={useStyles.textField}
+        style={{width: '200px'}}
         InputLabelProps={{
           shrink: true,
         }}
@@ -106,7 +111,8 @@ render() {
       <TextField
         id="standard-name"
         label="Address 1"
-        className={useStyles.textField}
+        // className={useStyles.textField}
+        style={{width: '200px'}}
         name="address1"
         value={this.state.address1}
         onChange={this.handleChange}
@@ -116,7 +122,8 @@ render() {
         id="standard-name"
         label="Address 2 (Optional)"
         name="address2"
-        className={useStyles.textField}
+        // className={useStyles.textField}
+        style={{width: '200px'}}
         value={this.state.address2}
         onChange={this.handleChange}
         margin="normal"
@@ -125,7 +132,8 @@ render() {
         id="standard-name"
         label="City"
         name="city"
-        className={useStyles.textField}
+        // className={useStyles.textField}
+        style={{width: '200px'}}
         value={this.state.city}
         onChange={this.handleChange}
         margin="normal"
@@ -134,7 +142,8 @@ render() {
         id="standard-name"
         label="State"
         name="state"
-        className={useStyles.textField}
+        // className={useStyles.textField}
+        style={{width: '200px'}}
         value={this.state.state}
         onChange={this.handleChange}
         margin="normal"
@@ -143,7 +152,8 @@ render() {
         id="standard-name"
         label="Zipcode"
         name="zipcode"
-        className={useStyles.textField}
+        // className={useStyles.textField}
+        style={{width: '200px'}}
         value={this.state.zipcode}
         onChange={this.handleChange}
         margin="normal"
