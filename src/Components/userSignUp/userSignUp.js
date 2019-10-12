@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./userSignUp.css";
+import {Button} from "@material-ui/core";
 
 class UserSignUp extends React.Component{
     state = {
@@ -56,11 +57,11 @@ render(){
               type="password"
               placeholder="Password"
             />
-            <div className="submit" onClick={this.handleSignup}>
+            <Button variant="contained" onClick={this.handleSignup}>
               Create Account
-            </div>
-            <Link className="submit" to="/user/login">
-              {" "}
+            </Button>
+            <br/>
+            <Link variant="contained" to="/user/login" >
               Go to Login
             </Link>
           </div>
