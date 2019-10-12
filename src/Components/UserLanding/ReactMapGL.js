@@ -7,7 +7,7 @@ state = {
         latitude: 40.4387154,
         longitude: -111.8922966,
         width: window.innerWidth,
-        height: window.innerHeight * 0.35,
+        height: '200px',
         zoom: 10   
     },
 }
@@ -36,7 +36,7 @@ onViewportChange = (viewport) => {
                     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
                     mapStyle="mapbox://styles/beardlife/ck13r7bg20gty1clg91fwjz4k"
                     onViewportChange={this.onViewportChange}
-                    style={{borderRadius: '30px'}}
+                    style={{borderRadius: '30px', margin: ' 8px 0 40px 0'}}
                 />
             </div>
         )

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './reset.css';
+import './vendorDisplayCard.css';
 import './UserLanding.css';
 // import { Link } from 'react-router-dom';
 import UserDrawer from './UserDrawer';
 import Map from './ReactMapGL';
 import {connect} from 'react-redux';
-import { logout } from '../../redux/actions'
+import { logout, getAllVendors} from '../../redux/actions'
 import axios from 'axios';
-import VendorDisplayCard from "./vendorDisplayCard";
+
 
 
 class UserLanding extends Component {
@@ -22,9 +23,27 @@ class UserLanding extends Component {
 
     })
   }
-
+  componentDidMount(){
+    axios.get("/api/get-all-vendor")
+   .then(response =>{
+       this.props.getAllVendors(response.data);
+   });
+}
 
   render() {
+      console.log(this.props.vendors)
+      let vendorMap=this.props.vendors.map((vendor)=>{
+        return(
+            <div className="event-summary"  key={vendor.id}>
+              <div className="event-profile-container">
+                <div className="event-profile"></div>
+              </div>
+              <div className="event-details">
+              {vendor.vendor_name}
+              </div>
+            </div>
+        );
+     })
       return (
         <div className="user-landing-body">
           <div className="header">
@@ -32,9 +51,9 @@ class UserLanding extends Component {
                           logout={this.handleLogout}/>
           </div>
           <div className="map-container"><Map /></div> 
+            <h1>EVENTS</h1>
           <div className="event-list-container">
-            EVENTS
-            <VendorDisplayCard/>
+            {vendorMap}
           </div>
         </div>
       );
@@ -43,9 +62,10 @@ class UserLanding extends Component {
 
 function mapStateToProps(state) {
   return {
-    isUserLoggedIn: state.isUserLoggedIn
+    isUserLoggedIn: state.isUserLoggedIn,
+    vendors: state.vendors
   }
 }
 
-export default connect(mapStateToProps, {logout: logout})(UserLanding);
+export default connect(mapStateToProps, {logout: logout, getAllVendors:getAllVendors})(UserLanding);
 

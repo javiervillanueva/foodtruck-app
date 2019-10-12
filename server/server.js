@@ -40,6 +40,7 @@ app.use(
 
 app.post("/api/user-signup", controller.createUser);
 app.get("/api/getAllUsers", controller.getAllUsers);
+app.get("/api/get-all-vendor", controller.getAllVendors)
 app.get("/api/logged-in-user", controller.getSessionUser);
 app.get("/api/logged-in-vendor", controller.getSessionVendor);
 app.get("/api/get-locations-id", controller.getVlocationsByVId);
