@@ -1,16 +1,14 @@
 .App{
     display:flex;
-   
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 .wrapper{
-    height:160px;
+    height:220px;
     width: 350px;
-    
-    border:2px solid black;
+    /* border:2px solid black; */
     border-radius: 10px;
     display: flex;
     justify-content: flex-start;
@@ -18,22 +16,23 @@
     flex-direction: column;
     margin-bottom: 10px;
     margin-top:20px;
-    background: rgb(112, 134, 196);
+    background: #99E9F2;
     box-shadow: 5px 3px 10px #888888;
-    
+ 
+
 }
 /*font sizes*/
 .foodName{
     font-family:Roboto, sans-serif;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 24px;
+    font-weight:bolder;
     text-align: left;
 }
 
 .cost{
     font-family:Roboto, sans-serif;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: light;
     text-align: left;
 }
 
@@ -72,11 +71,12 @@
 }
 
 .discription{
-    height:70px;
+    height:100px;
     width: 320px;
-    background: rgb(173, 211, 241);
+    background: white;
     padding:4px;
     border-radius: 5px;
+    
 }
 
 .textBoxes{

@@ -11,7 +11,7 @@ export default class VendorMenuCard extends React.Component {
                 <div className= "topBox">
                     <div className="foodImage"></div>
                     <div className ="textBoxes">
-                        <div className ="foodBox"><h1 className="foodName">Taco cat's famous best Taco!</h1></div>
+                        <div className ="foodBox"><h1 className="foodName">Taco cat taco</h1></div>
                         <div className ="moneyBox"> <h1 className="cost">10$</h1></div>
                     </div>
                 </div>
