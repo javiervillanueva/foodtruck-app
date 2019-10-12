@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { getSessionUser, LoginUser } from '../../redux/actions';
 import {connect} from 'react-redux';
 import "./Userlogin.css";
+import { Button } from '@material-ui/core';
 
 class Login extends React.Component {
   state = {
@@ -57,9 +58,9 @@ class Login extends React.Component {
               placeholder="Password"
               onKeyPress={this.onKeyPress}
             />
-            <div className="submit" onClick={this.handleLogin}>
-              <span>Login</span>
-            </div>
+            <Button className="submit" onClick={this.handleLogin} variant="contained" color="default">
+              Login
+            </Button>
             <Link className="link" to="/user/signup">
               Signup for Foodie Account
             </Link> 

@@ -40,7 +40,9 @@
     font-family:Roboto, sans-serif;
     font-size: 18px;
     font-weight: lighter;
-    text-align: left
+    text-align: left;
+    margin-top: 30px;
+    
 }
 
 /* */

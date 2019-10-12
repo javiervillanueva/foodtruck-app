@@ -27,6 +27,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import MapIcon from '@material-ui/icons/Map';
 import StarIcon from '@material-ui/icons/Star';
 import { Link } from 'react-router-dom';
+import {Button} from '@material-ui/core'
 // import UserLanding from './UserLanding';
 // import  { getSessionUser } from '../../redux/actions';
 // import { connect } from 'react-redux';
@@ -131,9 +132,9 @@ function PersistentDrawerLeft(props) {
           <Typography variant="h6" noWrap>
               { props.isUserLoggedIn === true ? 
                 null :
-                <Link to='/user/login'>
-                    <button>LOGIN</button>
-                </Link>
+                <Button variant="contained" className="button" href="/user/login">
+                  LOGIN
+                </Button>
               }
           </Typography>
         </Toolbar>
@@ -170,7 +171,9 @@ function PersistentDrawerLeft(props) {
             </ListItem>
             <ListItem button >
                 <ListItemIcon><MailIcon/></ListItemIcon>
+                <Link to="user/message" style={{textDecoration: 'none', color: 'black'}}>
                 <ListItemText>Messages</ListItemText>
+                </Link>
             </ListItem>
         </List>
         <Divider />
