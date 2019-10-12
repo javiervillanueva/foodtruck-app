@@ -39,3 +39,9 @@ export const getTodaysEvents = (events) => {
     
     }
 }
+export const getAllVendors = (vendors) => {
+    return {
+        type: 'GET_ALL_VENDORS',
+        payload: vendors
+    }
+}

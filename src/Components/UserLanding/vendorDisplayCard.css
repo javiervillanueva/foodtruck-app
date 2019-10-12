@@ -1,7 +1,8 @@
 .event-summary {
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
+    /* margin-bottom: 15px; */
     width: 90%;
-    height: 25%;
+    height: 100px;
     /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
@@ -26,8 +27,8 @@
 }
 
 .event-profile {
-    width: 90%;
-    height: 80%;
+    width: 82%;
+    height: 85%;
     border: 1px solid black;
     background: url('./Artboard-2.png') no-repeat center center;
     background-size: 80px 80px;
