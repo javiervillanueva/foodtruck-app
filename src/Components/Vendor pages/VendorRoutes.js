@@ -7,6 +7,8 @@ import VendorDrawer from "./VendorDrawer";
 import { Switch, Route, Link } from 'react-router-dom';
 import VendorSchedule from './VendorSchedule';
 import VendorScheduleView from './VendorScheduleView';
+import VendorAddMenuItem from './VendorAddMenuItem';
+
 import Vhome from '../Vendor pages/Vhome';
 import Menulist from '../Menu/Menulist';
 
@@ -64,6 +66,7 @@ import Menulist from '../Menu/Menulist';
                 <Route path='/vendor/schedule' component={VendorSchedule}/>
                 <Route path='/vendor/scheduleview' component={VendorScheduleView}/>
                 <Route path='/vendor/menu' component={Menulist}/>
+                <Route path='/vendor/menuadd' component={VendorAddMenuItem}/>
               </Switch>
             
             

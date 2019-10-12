@@ -9,6 +9,9 @@ import UserLogin from "./Components/User login/userlogin"
 import UserLanding from './Components/UserLanding/UserLanding';
 import UserSignUp from "./Components/userSignUp/userSignUp";
 import VendorRoutes from "./Components/Vendor pages/VendorRoutes";
+import UserSendMessage from "./Components/UserSendMessage/UserSendMessage";
+
+
 import axios from 'axios';
 
 
@@ -40,6 +43,8 @@ class App extends Component {
           <Route path='/vendor/signup' component={SignUp} />
           <Route path='/user/login' component={UserLogin}/>
           <Route path='/user/signup' component={UserSignUp}/>
+          <Route path='/user/message' component={UserSendMessage}/>
+
           {/* { !this.props.isLoggedIn ? 
             // this.props.history.push('/')
             null
