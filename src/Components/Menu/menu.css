@@ -41,12 +41,12 @@
     font-size: 18px;
     font-weight: lighter;
     text-align: left;
-    margin-top: 30px;
+    
     
 }
 
 /* */
-.foodImage{
+/* .foodImage{
     height:60px;
     width:60px;
     border-radius: 100%;
@@ -54,7 +54,7 @@
     margin-left: 15px;
     margin-top: 15px;
    
-}
+} */
 .topBox{
     height:130px;
     width: 350px;
