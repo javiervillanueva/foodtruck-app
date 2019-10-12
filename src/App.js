@@ -8,13 +8,9 @@ import SignUp from "./Components/SignUp/SignUp"
 import UserLogin from "./Components/User login/userlogin"
 import UserLanding from './Components/UserLanding/UserLanding';
 import UserSignUp from "./Components/userSignUp/userSignUp";
-// import UserDrawer from './Components/UserLanding/UserDrawer'
 import VendorRoutes from "./Components/Vendor pages/VendorRoutes";
-// import { Menu, MenuList } from '@material-ui/core';
-// import VendorMenuCard from "./Components/Menu/menu";
-import Menulist from "./Components/Menu/Menulist";
 import axios from 'axios';
-// import VendorSchedule from './Components/Vendor Schedule/VendorSchedule';
+
 
 
 class App extends Component {
@@ -26,16 +22,7 @@ class App extends Component {
         if (response.data.email) this.props.LoginUser();
       });
     
-    axios.get('/api/logged-in-vendor')
-    .then(response => {
-      this.props.getSessionVendor(response.data);
-      if (response.data.email) {
-        this.props.LoginVendor();
-        // this.props.history.push('/vendor/home')
-      } else {
-        this.props.history.push('/')
-      }
-    });
+
       
 }
 
@@ -51,17 +38,14 @@ class App extends Component {
           <Route exact path='/' component={UserLanding}/>
           <Route path='/vendor/login' component={Vlogin}/>
           <Route path='/vendor/signup' component={SignUp} />
-          
           <Route path='/user/login' component={UserLogin}/>
           <Route path='/user/signup' component={UserSignUp}/>
-          <Route path='/menu' component={Menulist}/>
-          <Route exact path='/vendor/login' component={Vlogin}/>
-          <Route exact path='/vendor/signup' component={SignUp} />
           {/* { !this.props.isLoggedIn ? 
             // this.props.history.push('/')
             null
             :  */}
           <Route path='/vendor' component={VendorRoutes}/>
+          <Route path='/user/signup' component={UserSignUp}/>
           <Route exact path='/user/login' component={UserLogin}/>
           <Route exact path='/user/signup' component={UserSignUp}/>
         </Switch>

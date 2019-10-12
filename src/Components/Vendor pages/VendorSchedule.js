@@ -1,11 +1,9 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import axios from "axios";
-// import { Link } from "react-router-dom";
 import "./VendorSchedule.css";
-import { getSessionVendor, LoginVendor, logout } from '../../redux/actions';
+import { getSessionVendor} from '../../redux/actions';
 import { connect } from 'react-redux';
-// import VendorDrawer from '../Vendor pages/VendorDrawer';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
@@ -14,8 +12,10 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles(theme => (
     {
     container: {
+      height: '500px',
       display: 'flex',
-      flexWrap: 'wrap',
+      flexDirection: 'column',
+      alignItems: 'center'
     },
     button: {
         margin: theme.spacing(1),
@@ -25,6 +25,8 @@ const useStyles = makeStyles(theme => (
     },
     textField: 
     {
+      display: 'flex',
+      justifyContent: 'space-around',
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
       width: 200,
@@ -55,7 +57,8 @@ class VendorSchedule extends React.Component {
 
     handleSubmit = async () => {
         try {
-            await axios.post("/api/add-vendor-location", this.state);
+          if (this.state.address1 && this.state.city && this.state.state && this.state.zipcode && this.state.date) {
+           await axios.post("/api/add-vendor-location", this.state);
             alert("added schedule event");
             this.setState ({
               address1: "",
@@ -65,6 +68,9 @@ class VendorSchedule extends React.Component {
               zipcode: "",
               date: ""
             })
+          } else {
+            alert('No blank fields allowed');
+          }
         } catch (error) {
             console.log(error)
         }
@@ -74,33 +80,30 @@ class VendorSchedule extends React.Component {
     axios.get('/api/logged-in-vendor')
       .then(response => {
         this.props.getSessionVendor(response.data);
-        if (response.data.email) this.props.LoginVendor();
+        if (response.data.email);
       });
   }
 
 render() {
-    console.log(this.state)
-    return (
+      return (
       <div className="VendorSchedule">
           <div className="ScheduleBody">
-          
-            <div className="vsmainsection">
-              <div className="vsLower">
-                <h1 className="vsSchedule">Pancho</h1>
+              <div className="VScheduleMaker">
+                <div className="VSchedule"></div>
                 <div className ="vsmonday">
                     
-                    <div className="scheduleForm">
-                    <form className={useStyles.container} noValidate>
+                    <div className="ScheduleForm">
+                    <form style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', width: '200px'}} noValidate>
       <TextField
         id="date"
         label="Date"
         type="date"
         name="date"
         format="yyyy-mm-dd"
-        defaultValue="2019-01-01"
         value={this.state.date}
         onChange={this.handleDateChange}
-        className={useStyles.textField}
+        // className={useStyles.textField}
+        style={{width: '200px'}}
         InputLabelProps={{
           shrink: true,
         }}
@@ -108,7 +111,8 @@ render() {
       <TextField
         id="standard-name"
         label="Address 1"
-        className={useStyles.textField}
+        // className={useStyles.textField}
+        style={{width: '200px'}}
         name="address1"
         value={this.state.address1}
         onChange={this.handleChange}
@@ -116,9 +120,10 @@ render() {
       />
       <TextField
         id="standard-name"
-        label="Address 2"
+        label="Address 2 (Optional)"
         name="address2"
-        className={useStyles.textField}
+        // className={useStyles.textField}
+        style={{width: '200px'}}
         value={this.state.address2}
         onChange={this.handleChange}
         margin="normal"
@@ -127,7 +132,8 @@ render() {
         id="standard-name"
         label="City"
         name="city"
-        className={useStyles.textField}
+        // className={useStyles.textField}
+        style={{width: '200px'}}
         value={this.state.city}
         onChange={this.handleChange}
         margin="normal"
@@ -136,7 +142,8 @@ render() {
         id="standard-name"
         label="State"
         name="state"
-        className={useStyles.textField}
+        // className={useStyles.textField}
+        style={{width: '200px'}}
         value={this.state.state}
         onChange={this.handleChange}
         margin="normal"
@@ -145,7 +152,8 @@ render() {
         id="standard-name"
         label="Zipcode"
         name="zipcode"
-        className={useStyles.textField}
+        // className={useStyles.textField}
+        style={{width: '200px'}}
         value={this.state.zipcode}
         onChange={this.handleChange}
         margin="normal"
@@ -160,7 +168,6 @@ render() {
               
               </div>
             </div>
-          </div>
       </div>
     );
   }
@@ -174,4 +181,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {getSessionVendor: getSessionVendor, LoginVendor: LoginVendor, logout: logout})(VendorSchedule);
+export default connect(mapStateToProps, {getSessionVendor: getSessionVendor})(VendorSchedule);

@@ -1,13 +1,8 @@
 import React from "react";
-// import axios from "axios";
-// import { Link } from "react-router-dom";
 import "./Vhome.css";
 import { getSessionVendor, LoginVendor, logout } from "../../redux/actions";
 import { connect } from "react-redux";
 import axios from "axios";
-// import VendorDrawer from "./VendorDrawer";
-// import { Switch, Route } from 'react-router-dom';
-// import VendorSchedule from '../Vendor Schedule/VendorSchedule';
 
 
 

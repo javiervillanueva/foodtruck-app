@@ -177,16 +177,30 @@ module.exports = {
       }
     },
 
-    getVlocations: async (req, res) => {
+    getVlocationsByVId: async (req, res) => {
         const db = req.app.get("db");
         const vId = req.session.vendor.id
-        db.query(
+        await db.query(
           `SELECT vendor_id, address1, address2, city, state, zipcode, date FROM vendor_location
-          WHERE vendor_id = ${vId}`
+          WHERE vendor_id = ${vId};`
+        )
+        .then(results => {
+          res.send(results)
+      })
+      .catch(error => console.log(error));
+    },
+
+    getVlocationsByDate: async (req, res) => {
+        const db = req.app.get("db");
+        const date = req.body.todaysDate;
+        await db.query(
+          `SELECT vendor_id, address1, address2, city, state, zipcode, date FROM vendor_location
+          WHERE date = '${date}'::date;`
         )
         .then(results => {
           res.send(results)
       })
       .catch(error => console.log(error));
     }
+
 }
