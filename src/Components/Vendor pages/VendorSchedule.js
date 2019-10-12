@@ -1,11 +1,9 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import axios from "axios";
-// import { Link } from "react-router-dom";
 import "./VendorSchedule.css";
-import { getSessionVendor, LoginVendor, logout } from '../../redux/actions';
+import { getSessionVendor} from '../../redux/actions';
 import { connect } from 'react-redux';
-// import VendorDrawer from '../Vendor pages/VendorDrawer';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
@@ -42,7 +40,7 @@ class VendorSchedule extends React.Component {
         city: "",
         state: "",
         zipcode: "",
-        date: "2019-01-01"
+        date: ""
     };
 
     handleDateChange = event => this.setState({
@@ -64,7 +62,7 @@ class VendorSchedule extends React.Component {
               city: "",
               state: "",
               zipcode: "",
-              date: "2019-01-01"
+              date: ""
             })
           } else {
             alert('No blank fields allowed');
@@ -78,7 +76,7 @@ class VendorSchedule extends React.Component {
     axios.get('/api/logged-in-vendor')
       .then(response => {
         this.props.getSessionVendor(response.data);
-        if (response.data.email) this.props.LoginVendor();
+        if (response.data.email);
       });
   }
 
@@ -86,13 +84,11 @@ render() {
       return (
       <div className="VendorSchedule">
           <div className="ScheduleBody">
-          
-            <div className="vsmainsection">
-              <div className="vsLower">
-                <h1 className="vsSchedule">Hello</h1>
+              <div className="VScheduleMaker">
+                <div className="VSchedule"></div>
                 <div className ="vsmonday">
                     
-                    <div className="scheduleForm">
+                    <div className="ScheduleForm">
                     <form className={useStyles.container} noValidate>
       <TextField
         id="date"
@@ -118,7 +114,7 @@ render() {
       />
       <TextField
         id="standard-name"
-        label="Address 2"
+        label="Address 2 (Optional)"
         name="address2"
         className={useStyles.textField}
         value={this.state.address2}
@@ -162,7 +158,6 @@ render() {
               
               </div>
             </div>
-          </div>
       </div>
     );
   }
@@ -176,4 +171,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {getSessionVendor: getSessionVendor, LoginVendor: LoginVendor, logout: logout})(VendorSchedule);
+export default connect(mapStateToProps, {getSessionVendor: getSessionVendor})(VendorSchedule);
