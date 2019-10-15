@@ -3,13 +3,13 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSessionUser, LoginUser, LoginVendor, getSessionVendor } from './redux/actions';
 import './App.css';
-import Vlogin from './Components/Vendor login/Vendorlogin';
+import Vlogin from './Components/Vendor-pages/Vendor-login/Vendorlogin';
 import SignUp from "./Components/SignUp/SignUp"
-import UserLogin from "./Components/User login/userlogin"
-import UserLanding from './Components/UserLanding/UserLanding';
-import UserSignUp from "./Components/userSignUp/userSignUp";
-import VendorRoutes from "./Components/Vendor pages/VendorRoutes";
-import UserSendMessage from "./Components/UserSendMessage/UserSendMessage";
+import UserLogin from "./Components/User-Pages/User login/userlogin"
+import UserLanding from './Components/User-Pages/UserLanding/UserLanding';
+import UserSignUp from "./Components/User-Pages/userSignUp/userSignUp";
+import VendorRoutes from "./Components/Vendor-pages/VendorRoutes";
+import UserSendMessage from "./Components/User-Pages/UserSendMessage/UserSendMessage";
 
 
 import axios from 'axios';

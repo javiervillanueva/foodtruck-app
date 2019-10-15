@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 // import axios from "axios";
 import "./UserSendMessage.css";
-import { getSessionVendor} from '../../redux/actions';
+import { getSessionVendor} from '../../../redux/actions';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
