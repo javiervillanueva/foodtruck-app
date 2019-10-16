@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getSessionUser, LoginUser, LoginVendor, getSessionVendor } from './redux/actions';
 import './App.css';
 import Vlogin from './Components/Vendor-pages/Vendor-login/Vendorlogin';
-import SignUp from "./Components/SignUp/SignUp"
+import SignUp from "./Components/Vendor-pages/SignUp/SignUp"
 import UserLogin from "./Components/User-Pages/User login/userlogin"
 import UserLanding from './Components/User-Pages/UserLanding/UserLanding';
 import UserSignUp from "./Components/User-Pages/userSignUp/userSignUp";
@@ -44,11 +44,7 @@ class App extends Component {
           <Route path='/user/login' component={UserLogin}/>
           <Route path='/user/signup' component={UserSignUp}/>
           <Route path='/user/message' component={UserSendMessage}/>
-
-          {/* { !this.props.isLoggedIn ? 
-            // this.props.history.push('/')
-            null
-            :  */}
+          
           <Route path='/vendor' component={VendorRoutes}/>
           <Route path='/user/signup' component={UserSignUp}/>
           <Route exact path='/user/login' component={UserLogin}/>
