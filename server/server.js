@@ -40,11 +40,11 @@ app.use(
 
 app.post("/api/user-signup", controller.createUser);
 app.get("/api/getAllUsers", controller.getAllUsers);
-app.get("/api/get-all-vendor", controller.getAllVendors)
+app.get("/api/get-all-vendor", controller.getAllVendors);
 app.get("/api/logged-in-user", controller.getSessionUser);
 app.get("/api/logged-in-vendor", controller.getSessionVendor);
 app.get("/api/get-locations-id", controller.getVlocationsByVId);
-app.get("/api/get-locations-date", controller.getVlocationsByDate);
+app.post("/api/get-locations-date", controller.getVlocationsByDate);
 app.post("/api/user-login", controller.loginUser);
 app.post("/api/vendor-signup", controller.createVendor);
 app.post("/api/vendor-login", controller.loginVendor);
@@ -52,6 +52,7 @@ app.post("/api/user-faves", controller.addTofaves);
 app.post("/api/add-menu-item", controller.addMenuItem);
 app.post("/api/add-vendor-location", controller.addVLocation);
 app.delete('/api/logout', controller.logout);
+app.put('/api/remove-event', controller.deleteVLocation);
 
 
 app.listen(8080, () => console.log("ready"));

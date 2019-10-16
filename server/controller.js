@@ -53,18 +53,18 @@ module.exports = {
         res.send(req.session.vendor);
       },
 
-      getAllUsers: (req, res) => {
+      getAllUsers: async (req, res) => {
         const db = req.app.get("db");
-        db.query(
+        await db.query(
         `SELECT * FROM users;`
         ) .then(results => {
             res.send(results)
         })
       },
       
-      getAllVendors: (req, res) => {
+      getAllVendors: async (req, res) => {
         const db = req.app.get("db");
-        db.query(
+        await db.query(
         `SELECT * FROM vendor;`
         ) .then(results => {
             res.send(results)
@@ -204,11 +204,27 @@ module.exports = {
         const db = req.app.get("db");
         const date = req.body.todaysDate;
         await db.query(
-          `SELECT vendor_id, address1, address2, city, state, zipcode, date FROM vendor_location
-          WHERE date = '${date}'::date;`
+          `SELECT vendor_id, v.vendor_name, address1, address2, city, state, zipcode, date FROM vendor_location va
+         JOIN vendor v ON v.id = va.vendor_id
+         WHERE date = '${date}'::date`
         )
         .then(results => {
           res.send(results)
+      })
+      .catch(error => console.log(error));
+    },
+
+    deleteVLocation: async (req, res) => {
+
+      const db = req.app.get("db");
+      const vId = req.session.vendor.id;
+      const date = req.body.todaysDate;
+      const address1 = req.body.address1;
+      await db.query(
+        `DELETE FROM vendor_location vl WHERE vl.vendor_id = ${vId} AND vl.address1 = ${address1} AND date = '${date}'::date;`
+      )
+      .then(results => {
+        res.send(results)
       })
       .catch(error => console.log(error));
     }
