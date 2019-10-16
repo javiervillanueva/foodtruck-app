@@ -145,7 +145,7 @@ function PersistentDrawerLeft(props) {
         <List>
           <ListItem button >
             <ListItemIcon><CalendarTodayIcon/></ListItemIcon>
-            <Link to='/vendor/schedule' style={{textDecoration: 'none', color: 'black'}}>
+            <Link to='/vendor/scheduleview' style={{textDecoration: 'none', color: 'black'}}>
               <ListItemText onClick={() => handleDrawerClose()}>Schedule</ListItemText>
             </Link>
           </ListItem>

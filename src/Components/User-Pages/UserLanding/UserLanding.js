@@ -6,7 +6,7 @@ import './UserLanding.css';
 import UserDrawer from './UserDrawer';
 import Map from './ReactMapGL';
 import {connect} from 'react-redux';
-import { logout, getAllVendors} from '../../redux/actions'
+import { logout, getAllVendors} from '../../../redux/actions'
 import axios from 'axios';
 
 

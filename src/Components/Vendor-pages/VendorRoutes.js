@@ -9,7 +9,7 @@ import VendorSchedule from './VendorSchedule';
 import VendorScheduleView from './VendorScheduleView';
 import VendorAddMenuItem from './VendorAddMenuItem';
 
-import Vhome from '../Vendor pages/Vhome';
+import Vhome from '../Vendor-pages/Vhome';
 import Menulist from '../Menu/Menulist';
 
 
