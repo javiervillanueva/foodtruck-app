@@ -1,11 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { getSessionVendor, LoginVendor } from '../../redux/actions';
-import { connect } from 'react-redux';
-import "./Vlogin.css";
+import { getSessionUser, LoginUser } from '../../../redux/actions';
+import {connect} from 'react-redux';
+import "./Userlogin.css";
 import { Button } from '@material-ui/core';
-
 
 class Login extends React.Component {
   state = {
@@ -14,12 +13,13 @@ class Login extends React.Component {
   };
   handleLogin = async () => {
     try {
+
       if (this.state.email && this.state.password) {
-       const loginResult= await axios.post("/api/vendor-login", this.state);
-        this.props.getSessionVendor(loginResult.data)
-        this.props.LoginVendor();
+        let loginResult = await axios.post("/api/user-login", this.state );
+        this.props.getSessionUser(loginResult.data);
+        this.props.LoginUser();
         alert('successfully logged in!');
-        this.props.history.push("/vendor/home");
+        this.props.history.push("/");
       }else{
           alert('Please enter log in credentials')
       }
@@ -33,14 +33,14 @@ class Login extends React.Component {
     if (e.which === 13) {
         this.handleLogin();
     }
-  }
+}
 
   render() {
     return (
       <div className="App">
         <div className="Wrapper">
-          <div className="modal4">
-            <h1 className="logInto">Log in To Vendor Account</h1>
+          <div className="modal2">
+              <h1 className="logInto" >Log in to User Account</h1>
             <input
               value={this.state.username}
               onChange={this.handleChange}
@@ -58,16 +58,16 @@ class Login extends React.Component {
               placeholder="Password"
               onKeyPress={this.onKeyPress}
             />
-            <Button variant="contained" color="default" className="submit" onClick={this.handleLogin}>
+            <Button className="submit" onClick={this.handleLogin} variant="contained" color="default">
               Login
             </Button>
             <Link className="link" to="/user/signup">
-              Signup for Foodie Account
+              Signup as User
             </Link> 
              <Link className="link"to="/vendor/signup">
-              Signup for Vendor Account
+              Signup as Vendor
             </Link> 
-            <Link className="link" to="/user/login">Login in to User Account</Link>
+            <Link className="link" to="/vendor/login">Login to Vendor Account</Link>
           </div>
         </div>
       </div>
@@ -75,4 +75,4 @@ class Login extends React.Component {
   }
 }
 
-export default connect(null, { getSessionVendor: getSessionVendor, LoginVendor: LoginVendor})(Login);
+export default connect(null, {LoginUser: LoginUser, getSessionUser: getSessionUser})(Login);

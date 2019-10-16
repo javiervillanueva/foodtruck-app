@@ -32,16 +32,20 @@
   margin-top: 25px;
   width: 325px;
   height: 600px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   background: #f8a33b;
+  /* addes dropp showdow */
+  box-shadow: 3px 3px 10px black;
 }
 .Img-icon {
     width: 55%;
     height: 30%;
     /* border: 1px solid black; */
-    background: url('../UserLanding/Artboard-2.png') no-repeat center center;
+    background: url('../User-Pages/UserLanding/Artboard-2.png') no-repeat center center;
     background-size: 170px 170px;
     border-radius: 50%;
+    box-shadow: 3px 3px 10px black ;
+
 
 }
 .VendorName {
@@ -51,12 +55,12 @@
   margin-top: 10px;
   border: 1px solid black;
   height: 50px;
-  width: 250px;
-  background: white;
+  width: 275px;
+  /* background: white; */
 }
 .today {
   margin-top: 10px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 275px;
   width: 275px;
   background: white;
@@ -66,15 +70,19 @@
   margin-top: 25px;
   width: 325px;
   height: 475px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: #f8a33b;
+  box-shadow: 3px 3px 10px black; 
 }
 .monday {
   display: flex;
   height: 100px;
-  width: 300px;
-  background: #f8a33b;
+  width: 275px;
+  background: white;
   margin-top: 30px;
+  box-shadow: 3px 3px 10px black ;
+  border-radius: 10px;
 }
