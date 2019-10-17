@@ -40,6 +40,7 @@ class Login extends React.Component {
       <div className="App">
         <div className="Wrapper">
           <div className="modal4">
+          <div className ="logoBox"></div>
             <h1 className="logInto">Log in To Vendor Account</h1>
             <input
               value={this.state.username}

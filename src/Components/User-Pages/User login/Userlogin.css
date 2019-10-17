@@ -12,7 +12,15 @@
     background-size: cover;
     background-position: center;
   }
-  
+  .logoBox{
+    height:125px;
+    width:125px;
+    background-image:url('./images/foodtruckLogo.png');
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 10px;
+  }
+
   .modal2 {
     height: 475px;
     width: 350px;

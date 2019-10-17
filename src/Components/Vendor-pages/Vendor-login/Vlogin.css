@@ -14,7 +14,14 @@
     background-image:url('./images/Artboard.png');
     width:100vw;
   }
-  
+  .logoBox{
+    height:125px;
+    width:125px;
+    background-image:url('./images/foodtruckLogo.png');
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 10px; 
+  }
   .modal4 {
     height: 475px;
     width: 350px;
@@ -34,7 +41,8 @@
 .logInto{
   font-family: Roboto, sans-serif;
   font-size: 24px;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
   .username {
