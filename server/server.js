@@ -44,12 +44,8 @@ app.get("/api/get-all-vendor", controller.getAllVendors);
 app.get("/api/logged-in-user", controller.getSessionUser);
 app.get("/api/logged-in-vendor", controller.getSessionVendor);
 app.get("/api/get-locations-id", controller.getVlocationsByVId);
-<<<<<<< HEAD
-app.get("/api/get-locations-date", controller.getVlocationsByDate);
-=======
 app.get("/api/get-menu-items-id", controller.getMenuById);
 app.post("/api/get-locations-date", controller.getVlocationsByDate);
->>>>>>> master
 app.post("/api/user-login", controller.loginUser);
 app.post("/api/vendor-signup", controller.createVendor);
 app.post("/api/vendor-login", controller.loginVendor);
