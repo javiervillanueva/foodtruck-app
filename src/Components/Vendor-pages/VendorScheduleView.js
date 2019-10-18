@@ -9,7 +9,7 @@ class VendorScheduleView extends React.Component {
     axios.get("/api/get-locations-id").then(response => {
       this.props.getEventsById(response.data);
     });
-  }
+  } 
 
   render() {
    console.log(this.props)
