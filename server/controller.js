@@ -203,7 +203,7 @@ module.exports = {
         const db = req.app.get("db");
         const vId = req.session.vendor.id
         await db.query(
-          `SELECT vendor_id, address1, address2, city, state, zipcode, date FROM vendor_location
+          `SELECT * FROM vendor_location
           WHERE vendor_id = ${vId};`
         )
         .then(results => {
@@ -228,15 +228,10 @@ module.exports = {
       .catch(error => console.log(error));
     },
 
-    deleteVLocation: async (req, res) => {
-
+    removeVLocation: async (req, res) => {
       const db = req.app.get("db");
-      const vId = req.session.vendor.id;
-      const date = req.body.todaysDate;
-      const address1 = req.body.address1;
-      await db.query(
-        `DELETE FROM vendor_location va WHERE va.vendor_id = ${vId} AND va.address1 = ${address1} AND va.date = '${date}'::date;`
-      )
+      const eventId = req.body.id;
+      await db.query(`DELETE FROM vendor_location where id = ${eventId};`)
       .then(results => {
         res.send(results)
       })
