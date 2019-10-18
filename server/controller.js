@@ -153,6 +153,18 @@ module.exports = {
         }
     }, 
 
+    getMenuById: async (req, res) => {
+      const db = req.app.get("db");
+      const vId = req.session.vendor.id;
+      await db.query(
+        `SELECT * FROM text_menu where vendor_id = ${vId};`
+      )
+      .then(results => {
+        res.send(results)
+    })
+    .catch(error => console.log(error));
+    },
+
         logout: async (req, res) => {
         return req.session.destroy(err => {
           
@@ -223,7 +235,7 @@ module.exports = {
       const date = req.body.todaysDate;
       const address1 = req.body.address1;
       await db.query(
-        `DELETE FROM vendor_location vl WHERE vl.vendor_id = ${vId} AND vl.address1 = ${address1} AND date = '${date}'::date;`
+        `DELETE FROM vendor_location va WHERE va.vendor_id = ${vId} AND va.address1 = ${address1} AND va.date = '${date}'::date;`
       )
       .then(results => {
         res.send(results)
