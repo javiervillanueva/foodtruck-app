@@ -203,7 +203,7 @@ module.exports = {
         const db = req.app.get("db");
         const vId = req.session.vendor.id
         await db.query(
-          `SELECT vendor_id, address1, address2, city, state, zipcode, date FROM vendor_location
+          `SELECT * FROM vendor_location
           WHERE vendor_id = ${vId};`
         )
         .then(results => {
