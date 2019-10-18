@@ -70,6 +70,7 @@ class Login extends React.Component {
             </Link> 
             <Link className="link" to="/vendor/login">Login to Vendor Account</Link>
           </div>
+          <Link className="back" to="/" >Cancel</Link>
         </div>
       </div>
     );
