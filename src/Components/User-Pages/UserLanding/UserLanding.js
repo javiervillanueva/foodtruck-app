@@ -74,6 +74,7 @@ class UserLanding extends Component {
       let vendorMap = this.props.events.map(events => {
         let address = `${events.address1} ${events.address2}, ${events.city}, ${events.state} ${events.zipcode}`
 
+        
         return (
           <div className="event-summary" key={events.vendor_location_id} onClick={() => this.getGeoCode(address)}>
             <div className="event-profile-container">
