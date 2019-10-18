@@ -1,9 +1,12 @@
+
+
 const initialState = {
     user: {},
     vendor: {},
     events: [],
     vendors:[],
     vendorEvents:[],
+    vendorMenu:[],
     isUserLoggedIn: false,
     isVendorLoggedIn: false
 }
@@ -26,7 +29,8 @@ export default function reducer(state=initialState, action) {
             return {...state, isVendorLoggedIn: true};
         case 'LOGOUT': 
             return {...state, vendor: {}, user: {}, isUserLoggedIn: false, isVendorLoggedIn: false};
-
+        case 'GET_MENU_BY_ID':
+            return{...state,vendorMenu: action.payload}
         default: return state;
     }
 }
