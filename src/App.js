@@ -25,9 +25,7 @@ class App extends Component {
         this.props.getSessionUser(response.data);
         if (response.data.email) this.props.LoginUser();
       });
-    
-
-      
+  
 }
 
   render () {
@@ -45,11 +43,6 @@ class App extends Component {
           <Route path='/user/login' component={UserLogin}/>
           <Route path='/user/signup' component={UserSignUp}/>
           <Route path='/user/message' component={UserSendMessage}/>
-
-          {/* { !this.props.isLoggedIn ? 
-            // this.props.history.push('/')
-            null
-            :  */}
           <Route path='/vendor' component={VendorRoutes}/>
           <Route path='/user/signup' component={UserSignUp}/>
           <Route exact path='/user/login' component={UserLogin}/>

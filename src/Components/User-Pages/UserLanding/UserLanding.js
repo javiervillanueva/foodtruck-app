@@ -48,6 +48,7 @@ class UserLanding extends Component {
 
   getGeoCode = (address) => {
     console.log('yo yo yo')
+    this.setState({})
     axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyA7C_JIMTFkb3zGUydDU_RdWoAkNvtXBVw`)
       .then(response => {
         console.log('response', response.data)
@@ -61,7 +62,7 @@ class UserLanding extends Component {
 
   render() {
     console.log(this.props.events);
-    if (this.state.briostack === {}){
+    if (this.state.cardMarker === {}){
       return (
         console.log('loading')
       )
