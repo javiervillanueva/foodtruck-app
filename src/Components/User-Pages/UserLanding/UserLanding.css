@@ -76,7 +76,7 @@ button:hover {
     text-align: center;
     font-weight: bolder;
     font-size:20px;
-    padding-bottom:5px;
+    /* padding-bottom:5px; */
 }
 
 .address1{
@@ -87,6 +87,13 @@ button:hover {
 }
 
 .address2{
+    font-weight: bold;
+    text-align: left;
+    padding-left:15px;
+    color:black;
+    
+}
+.address3{
     font-weight: bold;
     text-align: left;
     padding-left:15px;

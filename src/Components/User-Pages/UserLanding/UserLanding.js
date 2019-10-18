@@ -50,8 +50,8 @@ class UserLanding extends Component {
           <div className="event-details">
             <div className="vendor_name">{events.vendor_name}</div>
             <div className="address1">{events.address1}</div>
-            <div >{events.address2}</div>
-            <div className="address2">
+            <div className="address2" >{events.address2}</div>
+            <div className="address3">
               {events.city} {events.state}, {events.zipcode}
             </div>
           </div>
