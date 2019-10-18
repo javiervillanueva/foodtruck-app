@@ -37,7 +37,7 @@ class UserLanding extends Component {
     const day = date.getDate();
     const year = date.getFullYear();
 
-    })
+    // })
   }
   componentDidMount(){
     axios.get("/api/get-all-vendor")
