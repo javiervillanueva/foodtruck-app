@@ -106,7 +106,7 @@ class UserLanding extends Component {
           <div className="event-list-container">{vendorMap}</div>
         </div>
       );
-    }
+    };
   }
 }
 

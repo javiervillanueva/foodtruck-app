@@ -53,18 +53,18 @@ module.exports = {
         res.send(req.session.vendor);
       },
 
-      getAllUsers: (req, res) => {
+      getAllUsers: async (req, res) => {
         const db = req.app.get("db");
-        db.query(
+        await db.query(
         `SELECT * FROM users;`
         ) .then(results => {
             res.send(results)
         })
       },
       
-      getAllVendors: (req, res) => {
+      getAllVendors: async (req, res) => {
         const db = req.app.get("db");
-        db.query(
+        await db.query(
         `SELECT * FROM vendor;`
         ) .then(results => {
             res.send(results)
@@ -153,6 +153,18 @@ module.exports = {
         }
     }, 
 
+    getMenuById: async (req, res) => {
+      const db = req.app.get("db");
+      const vId = req.session.vendor.id;
+      await db.query(
+        `SELECT * FROM text_menu where vendor_id = ${vId};`
+      )
+      .then(results => {
+        res.send(results)
+    })
+    .catch(error => console.log(error));
+    },
+
         logout: async (req, res) => {
         return req.session.destroy(err => {
           
@@ -191,7 +203,7 @@ module.exports = {
         const db = req.app.get("db");
         const vId = req.session.vendor.id
         await db.query(
-          `SELECT vendor_id, address1, address2, city, state, zipcode, date FROM vendor_location
+          `SELECT * FROM vendor_location
           WHERE vendor_id = ${vId};`
         )
         .then(results => {
@@ -212,6 +224,16 @@ module.exports = {
         .then(results => {
             console.log(results)
           res.send(results)
+      })
+      .catch(error => console.log(error));
+    },
+
+    removeVLocation: async (req, res) => {
+      const db = req.app.get("db");
+      const eventId = req.body.id;
+      await db.query(`DELETE FROM vendor_location where id = ${eventId};`)
+      .then(results => {
+        res.send(results)
       })
       .catch(error => console.log(error));
     }

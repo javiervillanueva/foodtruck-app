@@ -51,3 +51,9 @@ export const getEventsById = (vendorEvents) => {
         payload: vendorEvents
     }
 }
+export const getMenuById = (vendorMenu) => {
+    return {
+        type: 'GET_MENU_BY_ID',
+        payload: vendorMenu
+    }
+}
