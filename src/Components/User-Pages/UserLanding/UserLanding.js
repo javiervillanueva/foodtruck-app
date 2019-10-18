@@ -48,10 +48,10 @@ class UserLanding extends Component {
             <div className="event-profile"></div>
           </div>
           <div className="event-details">
-            <div>{events.vendor_name}</div>
-            <div>{events.address1}</div>
-            <div>{events.address2}</div>
-            <div>
+            <div className="vendor_name">{events.vendor_name}</div>
+            <div className="address1">{events.address1}</div>
+            <div className="address2" >{events.address2}</div>
+            <div className="address3">
               {events.city} {events.state}, {events.zipcode}
             </div>
           </div>
@@ -69,8 +69,13 @@ class UserLanding extends Component {
         <div className="map-container">
           <Map />
         </div>
-        <h1>EVENTS</h1>
-        <div className="event-list-container">{vendorMap}</div>
+        
+        
+        <div className="event-list-container">
+        <h1 className="nearMe">Trucks Near Me</h1>
+        {vendorMap}
+        </div>
+        
       </div>
     );
   }
