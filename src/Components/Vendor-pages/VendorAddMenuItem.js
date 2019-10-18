@@ -58,6 +58,7 @@ class VendorAddMenuItem extends React.Component {
               description: "",
               price: ""
             })
+            this.props.history.push("/vendor/menu")
           } else {
             alert('No blank fields allowed');
           }
@@ -75,6 +76,7 @@ class VendorAddMenuItem extends React.Component {
   }
 
 render() {
+  console.log(this.props)
       return (
       <div className="MenuAdd">
           <div className="MenuBody">
@@ -116,14 +118,24 @@ render() {
         margin="normal"
       />
     </form>
+    <div className="menuaddbutton">
+    <Button variant="contained" className="cancel"  href="/vendor/menu"> 
+      Cancel
+      </Button> 
     <Button variant="contained" className={useStyles.button} onClick={this.handleSubmit}>
         Save
       </Button>
+    </div>
+      
+
+      
     
                     </div>
+                    
                 </div> 
               
               </div>
+              
             </div>
     );
   }
