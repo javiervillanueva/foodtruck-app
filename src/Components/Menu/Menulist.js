@@ -17,7 +17,7 @@ class Menulist extends React.Component {
     render() {
         let MenuCard= this.props.vendorMenu.map(vendorMenu =>{
             return(
-                <div className="wrapper">
+                <div className="wrapper" key={vendorMenu.id}>
                 <div className= "topBox">
                     <div className="foodImage"></div>
                     <div className ="textBoxes">
