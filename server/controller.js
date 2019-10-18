@@ -217,7 +217,7 @@ module.exports = {
         const date = req.body.todaysDate;
         console.log(date)
         await db.query(
-          `SELECT vendor_id, v.vendor_name, address1, address2, city, state, zipcode, date FROM vendor_location va
+          `SELECT vendor_id, v.vendor_name, address1, address2, city, state, zipcode, date, va.id as vendor_location_id FROM vendor_location va
           JOIN vendor v ON v.id = va.vendor_id
           WHERE date = '${date}'::date`
         )
