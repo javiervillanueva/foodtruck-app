@@ -41,3 +41,12 @@
     height: 500px;
 }
 
+.menuaddbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* .cancel {
+    margin-right: 50px !important;
+} */
