@@ -10,18 +10,19 @@
     justify-content: center;
     border-radius: 5px;
     background: #31A6A6;
-    box-shadow: 7px 7px 13px rgb(0, 0, 0, .6)
+    box-shadow: 7px 7px 10px rgb(0, 0, 0, .6)
 
 }
 
 .event-profile-container {
     width: 30%;
     height: 90%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+   
 
     
 }
@@ -29,7 +30,7 @@
 .event-profile {
     width: 82%;
     height: 85%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     background: url('./Artboard-2.png') no-repeat center center;
     background-size: 80px 80px;
     border-radius: 50%;

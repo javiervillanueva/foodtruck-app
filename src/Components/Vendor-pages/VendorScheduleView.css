@@ -66,3 +66,46 @@
     background: #f8a33b;
     margin-top:30px;
 }
+
+
+.cardWrapper{
+ height:200px;
+ width:350px;
+ background:yellow;   
+ margin-top:40px;
+ display:flex;
+ flex-direction: column;
+ /* justify-content: center; */
+ align-items: center; 
+ 
+}
+
+.eventLocation{
+ height:50px;
+ width:320px;
+ background: #99e9f2;
+ margin-top:10px;
+}
+
+.eventDate{
+    height:50px;
+    width:320px;
+    background: #99e9f2;
+    margin-top:10px;
+}
+
+.bottomCard{
+    height:70px;
+    width:320px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.DeleteButton{
+    height:50px;
+    width:100px;
+    background: #99e9f2;
+  
+}
