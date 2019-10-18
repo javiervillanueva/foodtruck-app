@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import ReactMapGL, { Marker } from 'react-map-gl';
-=======
 import ReactMapGL, {Marker} from 'react-map-gl';
 import foodMarker from './foodtruck-marker.png';
->>>>>>> master
 
 export default class Map extends Component {
 state = {
