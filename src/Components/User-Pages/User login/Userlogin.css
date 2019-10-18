@@ -76,3 +76,17 @@
     text-decoration: none;
   }
   
+  .back{
+    width: 80px;
+    height: 40px;
+    margin: 2px;
+    border-radius: 5px;
+    background: rgb(255, 255, 255, 0.4);
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+    text-align:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+  }
