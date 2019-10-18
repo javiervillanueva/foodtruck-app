@@ -167,7 +167,7 @@ module.exports = {
     },
 
         logout: async (req, res) => {
-        return req.session.destroy(err => {
+        return req.session.destroy(err => {t
           
           res.send("logged out")
         });
