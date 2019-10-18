@@ -53,7 +53,7 @@ app.post("/api/user-faves", controller.addTofaves);
 app.post("/api/add-menu-item", controller.addMenuItem);
 app.post("/api/add-vendor-location", controller.addVLocation);
 app.delete('/api/logout', controller.logout);
-app.delete('/api/remove-event', controller.deleteVLocation);
+app.post('/api/remove-event', controller.removeVLocation);
 
 
 app.listen(8080, () => console.log("ready"));
