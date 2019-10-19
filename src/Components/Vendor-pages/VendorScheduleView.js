@@ -13,23 +13,32 @@ class VendorScheduleView extends React.Component {
     });
   } 
 
+  handleDelete = (id) => { 
+      const body = {
+          id: id
+      }
+  axios.post('/api/remove-event', body)
+.then()
+};
+
   render() {
    console.log(this.props.events)
 let Schedule= this.props.vendorEvents.map(event =>{
-    return(
-        <div className ="cardWrapper" key={event.id}> 
-             <div className="eventDate">{event.date}</div>
-             <div className="eventLocation">
-             <div>{event.address1}</div>
-             <div>{event.address2}</div>
-             <div>{event.state} {event.city}, {event.zipcode}</div>
+    return (
+        <div key={event.id}>
+          <div className="monday">
+            <div>
+              {`${event.address1} `}
+              {`${event.address2} `}
+              {event.city} {event.state}, {event.zipcode}
+            </div>
+            <div className="bottomCard">
+               <Button className="DeleteButton" onClick={() => this.handleDelete(event.id)} >Delete</Button>
              </div>
-             <div className="bottomCard">
-               <Button className="DeleteButton">Delete Event</Button>
-             </div>
+          </div>
         </div>
-    )
-});
+      );
+}); 
 return(
 <div>{Schedule}</div>
 )

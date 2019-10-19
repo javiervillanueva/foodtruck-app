@@ -158,7 +158,7 @@ module.exports = {
       const db = req.app.get("db");
       const vId = req.session.vendor.id;
       await db.query(
-        `SELECT * FROM text_menu where vendor_id = ${vId};`
+        `SELECT * FROM text_menu WHERE vendor_id = ${vId};`
       )
       .then(results => {
         res.send(results)
@@ -232,7 +232,17 @@ module.exports = {
     removeVLocation: async (req, res) => {
       const db = req.app.get("db");
       const eventId = req.body.id;
-      await db.query(`DELETE FROM vendor_location where id = ${eventId};`)
+      await db.query(`DELETE FROM vendor_location WHERE id = ${eventId};`)
+      .then(results => {
+        res.send(results)
+      })
+      .catch(error => console.log(error));
+    },
+
+    deleteMenuItem: async (req, res) => {
+      const db = req.app.get("db");
+      const itemId = req.body.id
+      await db.query(`DELETE FROM text_menu WHERE id = ${itemId}`)
       .then(results => {
         res.send(results)
       })
