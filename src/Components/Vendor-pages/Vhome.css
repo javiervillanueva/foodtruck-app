@@ -79,6 +79,9 @@
 }
 .monday {
   display: flex;
+  flex-basis: column;
+  align-items: center;
+  justify-content: center;
   height: 100px;
   width: 275px;
   background: white;
