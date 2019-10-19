@@ -11,8 +11,7 @@ import UserLanding from './Components/User-Pages/UserLanding/UserLanding';
 import UserSignUp from "./Components/User-Pages/userSignUp/userSignUp";
 import VendorRoutes from "./Components/Vendor-pages/VendorRoutes";
 import UserSendMessage from "./Components/User-Pages/UserSendMessage/UserSendMessage";
-
-
+import UserFaves from "./Components/User-Pages/UserFaves/userFaves";
 import axios from 'axios';
 
 
@@ -47,6 +46,7 @@ class App extends Component {
           <Route path='/user/signup' component={UserSignUp}/>
           <Route exact path='/user/login' component={UserLogin}/>
           <Route exact path='/user/signup' component={UserSignUp}/>
+          <Route path='/user/favorites' component={UserFaves}/>
         </Switch>
       </div>
     );

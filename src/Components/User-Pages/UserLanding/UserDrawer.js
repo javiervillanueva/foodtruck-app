@@ -167,7 +167,9 @@ function PersistentDrawerLeft(props) {
             </ListItem>
             <ListItem button >
                 <ListItemIcon><StarIcon/></ListItemIcon>
+                <Link to="/user/favorites" >
                 <ListItemText>My Favorites</ListItemText>
+                </Link>
             </ListItem>
             <ListItem button >
                 <ListItemIcon><MailIcon/></ListItemIcon>
