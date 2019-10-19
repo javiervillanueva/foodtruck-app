@@ -93,8 +93,6 @@ function PersistentDrawerLeft(props) {
     setOpen(false);
   };
 
-// console.log('header', props)
-
   return (
     <div className={classes.root}>
       <CssBaseline />
