@@ -47,7 +47,6 @@ handleMarkerClick = () => {
 
     render() {
 
-        console.log('Your mom', this.state)
         return (
             <div>
                 <ReactMapGL 
