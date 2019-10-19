@@ -15,12 +15,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-// import ListIcon from '@material-ui/icons/List';
-import MailIcon from '@material-ui/icons/Mail';
 import KitchenIcon from '@material-ui/icons/Kitchen';
-import FastfoodIcon from '@material-ui/icons/Fastfood';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { Link } from 'react-router-dom';
@@ -155,14 +151,14 @@ function PersistentDrawerLeft(props) {
                   <ListItemText onClick={() => handleDrawerClose()}>Food Menu</ListItemText>
                 </Link> 
           </ListItem>
-          <ListItem button >
+          {/* <ListItem button >
             <ListItemIcon><FastfoodIcon/></ListItemIcon>
             <ListItemText>Specials</ListItemText>
           </ListItem>
           <ListItem button >
             <ListItemIcon><MailIcon/></ListItemIcon>
             <ListItemText>Messages</ListItemText>
-          </ListItem>
+          </ListItem> */}
         </List>
         <Divider />
         <List>
