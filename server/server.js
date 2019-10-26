@@ -62,5 +62,4 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build/index.html'))
 })
 
-app.set('port', (process.env.PORT || 8080));
-app.listen(app.get('port'), () => console.log("ready on port", app.get('port')));
+app.listen(process.env.PORT, () => console.log("ready on port", process.env.PORT));
