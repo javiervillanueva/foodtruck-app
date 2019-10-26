@@ -7,6 +7,7 @@ const initialState = {
     vendors:[],
     vendorEvents:[],
     vendorMenu:[],
+    userFaves: [],
     isUserLoggedIn: false,
     isVendorLoggedIn: false
 }
@@ -21,6 +22,8 @@ export default function reducer(state=initialState, action) {
             return {...state, vendors: action.payload};
         case 'GET_TODAYS_EVENTS': 
             return {...state, events: action.payload};
+        case 'GET_USER_FAVES': 
+            return {...state, userFaves: action.payload};
         case 'GET_EVENT_BY_ID': 
             return {...state, vendorEvents: action.payload};
         case 'USER_LOGIN': 

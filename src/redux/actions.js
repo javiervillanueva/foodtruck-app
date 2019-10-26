@@ -57,3 +57,9 @@ export const getMenuById = (vendorMenu) => {
         payload: vendorMenu
     }
 }
+export const getUserFaves = (userFaves) => {
+    return {
+        type: 'GET_USER_FAVES',
+        payload: userFaves
+    }
+}
