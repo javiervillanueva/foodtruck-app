@@ -3,27 +3,12 @@ const express = require("express");
 const app = express();
 const session = require("express-session");
 const massive = require("massive");
-const bcrypt = require("bcrypt");
 const bodyparser = require("body-parser");
 const path = require("path");
-const nodemailer = require("nodemailer");
 const controller = require("./controller");
-const server = require("http").Server(app);
-const io = require("socket.io")(server);
-
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/index.html");
-});
 
 massive(process.env.CONNECTION_STRING).then(db => {
   app.set("db", db);
-});
-
-io.on("connection", function(socket) {
-  socket.emit("news", { hello: "world" });
-  socket.on("my other event", function(data) {
-    console.log(data);
-  });
 });
 
 app.use(bodyparser.json());
