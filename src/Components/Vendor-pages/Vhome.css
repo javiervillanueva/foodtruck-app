@@ -56,7 +56,7 @@
   border: 1px solid black;
   height: 50px;
   width: 275px;
-  /* background: white; */
+  background: white;
 }
 .today {
   margin-top: 10px;
