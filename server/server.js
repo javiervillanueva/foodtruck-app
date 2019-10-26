@@ -57,5 +57,10 @@ app.post('/api/remove-event', controller.removeVLocation);
 app.post('/api/delete-menu-item', controller.deleteMenuItem);
 app.get('/api/get-users-faves', controller.getUserFaves);
 
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build/index.html'))
+})
+
 const port = process.env.PORT || 8080
 app.listen(port, () => console.log("ready on port", port));
