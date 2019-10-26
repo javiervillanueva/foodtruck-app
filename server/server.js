@@ -57,5 +57,5 @@ app.post('/api/remove-event', controller.removeVLocation);
 app.post('/api/delete-menu-item', controller.deleteMenuItem);
 app.get('/api/get-users-faves', controller.getUserFaves);
 
-
-app.listen(8080, () => console.log("ready"));
+const port = process.env.PORT || 8080
+app.listen(port, () => console.log("ready on port", port));
