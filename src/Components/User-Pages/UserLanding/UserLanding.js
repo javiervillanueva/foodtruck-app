@@ -21,7 +21,6 @@ class UserLanding extends Component {
   }
 
   handleLogout = closeDrawer => {
-    // console.log('fire log out button')
     return axios.delete("/api/logout").then(() => {
       this.props.logout();
       alert("successfully logged out");
@@ -41,7 +40,7 @@ class UserLanding extends Component {
     const body = {
       todaysDate: todaysDate
     };
-    console.log(body);
+
     axios
       .post("/api/get-locations-date", body)
       .then(response => {
@@ -52,7 +51,6 @@ class UserLanding extends Component {
   }
 
   getGeoCode = (address) => {
-    console.log('yo yo yo')
     axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyA7C_JIMTFkb3zGUydDU_RdWoAkNvtXBVw`)
       .then(response => {
         console.log('response', response.data)
@@ -74,8 +72,9 @@ class UserLanding extends Component {
       let vendorMap = this.props.events.map(events => {
         let address = `${events.address1} ${events.address2}, ${events.city}, ${events.state} ${events.zipcode}`
 
+        
         return (
-          <div className="event-summary" key={events.vendor_id} onClick={() => this.getGeoCode(address)}>
+          <div className="event-summary" key={events.vendor_location_id} onClick={() => this.getGeoCode(address)}>
             <div className="event-profile-container">
               <div className="event-profile"></div>
             </div>

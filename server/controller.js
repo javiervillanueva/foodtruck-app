@@ -4,6 +4,7 @@ module.exports = {
 
   createUser: async (req, res) => {
     try {
+        
       const db = req.app.get("db");
   
       const hash = await bcrypt.hash(req.body.password, 10);
@@ -123,7 +124,7 @@ module.exports = {
             const vendorId = req.body.vendorId;
             const addVendor = await db.users_fave.insert({
                 user_id: userId,
-                vendor_id: vendorId
+                vendors_id: vendorId
             })
     
             res.sendStatus(200);
@@ -157,7 +158,7 @@ module.exports = {
       const db = req.app.get("db");
       const vId = req.session.vendor.id;
       await db.query(
-        `SELECT * FROM text_menu where vendor_id = ${vId};`
+        `SELECT * FROM text_menu WHERE vendor_id = ${vId};`
       )
       .then(results => {
         res.send(results)
@@ -217,8 +218,8 @@ module.exports = {
         const date = req.body.todaysDate;
         console.log(date)
         await db.query(
-          `SELECT vendor_id, v.vendor_name, address1, address2, city, state, zipcode, date FROM vendor_location va
-          JOIN vendor v ON v.id = va.vendor_id
+          `SELECT vendor_id, v.vendor_name, address1, address2, city, state, zipcode, date, vl.id as vendor_location_id FROM vendor_location vl
+          JOIN vendor v ON v.id = vl.vendor_id
           WHERE date = '${date}'::date`
         )
         .then(results => {
@@ -231,10 +232,37 @@ module.exports = {
     removeVLocation: async (req, res) => {
       const db = req.app.get("db");
       const eventId = req.body.id;
-      await db.query(`DELETE FROM vendor_location where id = ${eventId};`)
+      await db.query(`DELETE FROM vendor_location WHERE id = ${eventId};`)
       .then(results => {
         res.send(results)
       })
       .catch(error => console.log(error));
+    },
+
+    deleteMenuItem: async (req, res) => {
+      const db = req.app.get("db");
+      const itemId = req.body.id
+      await db.query(`DELETE FROM text_menu WHERE id = ${itemId}`)
+      .then(results => {
+        res.send(results)
+      })
+      .catch(error => console.log(error));
+    },
+
+    getUserFaves: async (req, res) => {
+      try{
+        const db = req.app.get("db");
+        const userId = req.session.user.id;
+        const favorites = await db.query(`SELECT v.vendor_name, v.id, v.owner_name, vendor_id, v.vendor_name, vl.address1, vl.address2, vl.city, vl.state, vl.zipcode, vl.date, vl.id as vendor_location_id 
+                        FROM vendor v
+                        JOIN vendor_location vl ON v.id = vl.vendor_id
+                        JOIN users_fave uf ON vl.vendor_id = uf.vendors_id
+                        JOIN users u ON u.id = uf.user_id
+                        WHERE u.id = ${userId};`);
+        res.status(200).send(favorites)
+      }  catch (error) {
+        console.error(error);
+        res.status(500).send(error);
+      } 
     }
 }

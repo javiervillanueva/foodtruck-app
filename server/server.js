@@ -54,6 +54,8 @@ app.post("/api/add-menu-item", controller.addMenuItem);
 app.post("/api/add-vendor-location", controller.addVLocation);
 app.delete('/api/logout', controller.logout);
 app.post('/api/remove-event', controller.removeVLocation);
+app.post('/api/delete-menu-item', controller.deleteMenuItem);
+app.get('/api/get-users-faves', controller.getUserFaves);
 
 
 app.listen(8080, () => console.log("ready"));

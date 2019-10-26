@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-// import { styled } from '@material-ui/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -16,22 +15,11 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
-// import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-// import ListIcon from '@material-ui/icons/List';
-import MailIcon from '@material-ui/icons/Mail';
-// import KitchenIcon from '@material-ui/icons/Kitchen';
-// import FastfoodIcon from '@material-ui/icons/Fastfood';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import MapIcon from '@material-ui/icons/Map';
 import StarIcon from '@material-ui/icons/Star';
 import { Link } from 'react-router-dom';
-import {Button} from '@material-ui/core'
-// import UserLanding from './UserLanding';
-// import  { getSessionUser } from '../../redux/actions';
-// import { connect } from 'react-redux';
-// import axios from 'axios';
+import Button from '@material-ui/core/Button';
 
 
 const drawerWidth = '80%';
@@ -105,8 +93,6 @@ function PersistentDrawerLeft(props) {
     setOpen(false);
   };
 
-// console.log('header', props)
-
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -132,7 +118,7 @@ function PersistentDrawerLeft(props) {
           <Typography variant="h6" noWrap>
               { props.isUserLoggedIn === true ? 
                 null :
-                <Button variant="contained" className="button" href="/user/login">
+                <Button variant="contained"  href="/user/login">
                   LOGIN
                 </Button>
               }
@@ -149,39 +135,38 @@ function PersistentDrawerLeft(props) {
         }}
       >
         <div className={classes.drawerHeader}>
+          <Typography style={{paddingRight: '55%'}}>Welcome!</Typography>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
         <Divider />
         <List>
-            {/* {['Schedule', ' Food Menu', 'Specials', 'Messages'].map((text, index) => (
-                <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <CalendarTodayIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-                </ListItem>
-            ))} */}
             <ListItem button >
                 <ListItemIcon><MapIcon/></ListItemIcon>
-                <ListItemText onClick={() => handleDrawerClose()}>Map</ListItemText>
+                <Link to='/' style={{textDecoration: 'none', color: 'black'}}>
+                  <ListItemText onClick={() => handleDrawerClose()}>Map</ListItemText>
+                </Link>
             </ListItem>
             <ListItem button >
                 <ListItemIcon><StarIcon/></ListItemIcon>
-                <ListItemText>My Favorites</ListItemText>
+                <Link to='/user/favorites' style={{textDecoration: 'none', color: 'black'}}>
+                  <ListItemText>My Favorites</ListItemText>
+                </Link>
             </ListItem>
-            <ListItem button >
+            {/* <ListItem button >
                 <ListItemIcon><MailIcon/></ListItemIcon>
                 <Link to="user/message" style={{textDecoration: 'none', color: 'black'}}>
                 <ListItemText>Messages</ListItemText>
                 </Link>
-            </ListItem>
+            </ListItem> */}
         </List>
         <Divider />
         <List>
-            <ListItem button >
+            {/* <ListItem button >
                 <ListItemIcon><AccountCircleIcon/></ListItemIcon>
                 <ListItemText>My Profile</ListItemText>
-            </ListItem>
+            </ListItem> */}
             <ListItem button >
                 <ListItemIcon><ExitToAppIcon/></ListItemIcon>
                 <ListItemText onClick={() => {
