@@ -17,11 +17,11 @@ export default function reducer(state=initialState, action) {
             return {...state, user: action.payload};
         case 'GET_SESSION_VENDOR': 
             return {...state, vendor: action.payload};
-            case 'GET_ALL_VENDORS': 
+        case 'GET_ALL_VENDORS': 
             return {...state, vendors: action.payload};
         case 'GET_TODAYS_EVENTS': 
             return {...state, events: action.payload};
-            case 'GET_EVENT_BY_ID': 
+        case 'GET_EVENT_BY_ID': 
             return {...state, vendorEvents: action.payload};
         case 'USER_LOGIN': 
             return {...state, isUserLoggedIn: true};
