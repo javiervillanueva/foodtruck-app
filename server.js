@@ -11,6 +11,8 @@ massive(process.env.CONNECTION_STRING).then(db => {
   app.set("db", db);
 });
 
+app.use(express.static(__dirname + '/build'))
+
 app.use(bodyparser.json());
 app.use(
   session({
